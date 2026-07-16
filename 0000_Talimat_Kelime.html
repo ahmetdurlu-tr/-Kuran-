@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -567,4 +568,575 @@ Bu kurallara göre devam edelim. "Ayetin Arapça metni veya hangi ayet ile devam
 })();
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Talimatname – Özgün Meal Çalışması</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #e0ddd8;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header-card {
+            background: #0f4c73;
+            color: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .header-card h1 { font-size: 2.2rem; font-weight: 600; }
+        .header-card p { margin-top: 0.5rem; opacity: 0.9; font-size: 1rem; }
+        .info-box {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border: 1px solid #3a3d3f;
+        }
+        .info-box h2 {
+            color: #8eb4d9;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #0f4c73;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .copy-box {
+            background: #1f2123;
+            border: 1px solid #0f4c73;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            margin-top: 1.5rem;
+            font-family: 'Segoe UI', monospace;
+            font-size: 0.95rem;
+            color: #d0cec8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+        }
+        .copy-box strong { color: #8eb4d9; }
+        .copy-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .copy-box th {
+            text-align: left;
+            color: #a8b09e;
+            font-weight: 500;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #3a3d3f;
+        }
+        .copy-box td {
+            padding: 0.4rem 0.2rem;
+            border-bottom: 1px solid #2e3032;
+            vertical-align: top;
+        }
+        .copy-box td:first-child {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 1.1rem;
+            color: #e8e6e3;
+            width: 30%;
+        }
+        .copy-box td:last-child {
+            color: #d5d2cb;
+            width: 70%;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 650px) {
+            .header-card h1 { font-size: 1.6rem; }
+            .info-box { padding: 1.2rem; }
+            .copy-box td:first-child { font-size: 1rem; width: 35%; }
+        }
+    </style>
+
+
+
+
+
+
+
+
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header-card">
+        <h1>📋 Talimatname</h1>
+        <p>Özgün Meal Çalışması – Çeviri Kılavuzu</p>
+        <p style="font-size:0.85rem; opacity:0.8;">Yeni bir sohbete başlarken bu metni kullanın.</p>
+    </div>
+
+    <div class="info-box">
+        <h2>📋 Yapay Zekanın Takip Etmesi Gereken Kurallar</h2>
+        <div class="copy-box">
+<strong>TALİMATNAME – ÖZGÜN KUR'AN MEAL ÇALIŞMASI</strong>
+
+Merhaba. Senden, Kur'an ayetlerini Arapça kökenli kelimeleri mümkün olduğunca Türkçe karşılıklarla, duru, akıcı ve vurgulu bir dille çevirmen istenmektedir. Anlam derinliği, kelime kelime çeviriden önceliklidir. Talimatta verilen kelime anlamları önce denenir, uymazsa alternatif önerilir.
+
+🎯 Hedef Kitle: Dini terminolojiye yabancı, orta ve orta-alt seviye okurlar. Akademik değil, pürüzsüz ve akıcı anlatım.
+
+⭐ EN TEMEL KURAL: BAĞLAMI OKU, KALIBA SAPLANMA
+Kur'an'da bir kelime, her ayette aynı anlama gelmez. Anlam, bağlama göre değişir. Örn: "salât" → namaz, fedakârlık, gayret, destek, bağlanma, yardım. Hangi anlamın kullanılacağına, o ayetin akışına, önceki/sonraki ayet bağlamına ve ruhuna bakarak karar verilir.
+
+📌 Klasik külliyatın ısrarlı anlatımlarına değil, metnin özüne ve bağlamına güvenilir.
+📌 Çeviri Türkçe anlatım tarzına göre yapılır, Arapça anlatım kalıbı dayatılmaz.
+📌 Klasik çeviriler dikkate alınmaz.
+📌 YZ, Arapça metinden doğrudan okuma yapar.
+
+🧠 ÇEVİRMENİN ZİHİNSEL YAKLAŞIMI:
+- Arapça metne günlük metin gibi yaklaş.
+- Önce anlamı çöz, sonra Türkçede en doğal ifadeyi bul.
+- Kelime kalıplarına, sözlük anlamlarına, geleneksel karşılıklara takılma.
+- Türkçeye oturmamış, muğlak Arapça kelimeleri kullanma.
+- Anlamı Türkçede en iyi nasıl ifade edeceğine odaklan.
+
+📌 SABİT KELİME KARARLARI:
+Aşağıdaki tabloda yer alan her karar kesindir. Bir kelime için kararlaştırılan anlam, başka bir bağlamda genişletilebilir ancak mevcut karar asla silinmez veya değiştirilmez. Yeni eklenen kelimeler aynı formatta sunulur.
+
+1. KALICI KELİME TERCİHLERİ (TABLO):
+Aşağıdaki tabloda yer alan karşılıklar, bağlama göre esnetilebilir; ancak bu tercihler önceliklidir.
+
+| No | Arapça | Türkçe Karşılık |
+|----|--------|----------------|
+| 001 | رَبٌّ | Anlatım: Yaratıcı / Yaratan / yetiştirip yöneten; Hitap: Ey Yaratıcımız / Yaratıcımız |
+| 002 | ٱلْعَٰلَمِينَ | tüm yaratılmışlar / âlemler (bağlama göre) |
+| 003 | آمَنَ / يُؤْمِنُ | inandı / inanır / Allah'a yöneldi |
+| 004 | كَفَرَ / كَفَرُوا | reddetti / doğru yolu reddetti |
+| 005 | ٱلَّذِينَ كَفَرُوا | doğru yolu reddedenler / indirilenleri reddedenler |
+| 006 | ٱلصَّلَوٰةُ | bağlama göre: namaz, Allah'a yönelerek dua, fedakârlık, gayret, destek, bağlanma, yardım |
+| 007 | أَقَامَ ٱلصَّلَوٰةَ | namazı dosdoğru kıldı / bağlanmayı sağlamlaştırdı |
+| 008 | يُقِيمُونَ ٱلصَّلَوٰةَ | Allah'a yönelerek namazı dosdoğru kılarlar |
+| 009 | زَكَاةٌ | ihtiyaç sahiplerinin malınızdaki hakkı (hak payı) |
+| 010 | إِنْفَاقٌ | başkalarını faydalandırmak / başkaları için harcamak |
+| 011 | رُكُوعٌ | boyun eğmek |
+| 012 | سُجُودٌ | secde etmek (saygıyla eğilmek) |
+| 013 | خُشُوعٌ / خَاشِعُونَ | içten bağlananlar / gönülden yönelenler |
+| 014 | رِزْقٌ | nimet / verilen şey |
+| 015 | نِعْمَةٌ | nimet / iyilik / lütuf |
+| 016 | آخِرَةٌ | ölüm sonrası vadedilen hayat |
+| 017 | ٱلْيَوْمُ ٱلْآخِرُ | ölüm sonrası vadedilen hayatın günü |
+| 018 | يَوْمُ ٱلدِّينِ | yargı günü |
+| 019 | يَوْمُ ٱلْقِيَٰمَةِ | diriliş günü |
+| 020 | ٱلْحَقُ | doğru olan / gerçek / Allah'ın onayladığı |
+| 021 | ٱلْبَاطِلُ | uydurma olan / asılsız / Allah'ın onaylamadığı |
+| 022 | إِسْرَائِيلُ | Yakub |
+| 023 | بَنُو إِسْرَائِيلَ | Yakub'un oğulları |
+| 024 | ٱلْغَيْبُ | bildirilenler (vahyedilenler) / bilgimiz dışında olanlar |
+| 025 | جَنَّةٌ | bahçe |
+| 026 | أَنْهَارٌ | ırmaklar |
+| 027 | شَجَرَةٌ | ağaç |
+| 028 | ثَمَرَةٌ | meyve / ürün |
+| 029 | سُورَةٌ | sure (özel terim) |
+| 030 | آيَةٌ | ayet (özel terim) |
+| 031 | قُرْآنٌ | Kur'an (özel terim) |
+| 032 | مَلَائِكَةٌ | melekler |
+| 033 | إِبْلِيسُ | İblis |
+| 034 | شَيَاطِينُ | azgınlar / bozguncular / kötü arkadaşlar |
+| 035 | مُفْسِدُونَ | bozguncular |
+| 036 | مُصْلِحُونَ | düzenleyenler / düzelticiler |
+| 037 | فَاسِقُونَ | doğru yoldan sapanlar |
+| 038 | ظَالِمُونَ | haksızlık edenler / kendine yazık edenler |
+| 039 | خَاسِرُونَ | kaybedenler |
+| 040 | مُتَّقُونَ | korunanlar / sakınanlar |
+| 041 | صَادِقُونَ | doğru sözlüler / samimi olanlar |
+| 042 | غَضَب | yaptıklarının kötü bir karşılık doğurması / rahmetten yoksun bırakma |
+| 043 | لَعْنَة | rahmetten/destekten yoksun bırakma |
+| 044 | عَذَاب | karşılık / alçaltıcı karşılık |
+| 045 | حِكْمَةٌ | bilgelik / doğru karar verme yeteneği (bağlama göre) |
+| 046 | حَكِيمٌ | her işi yerli yerince yapan / doğru karar veren (bağlama göre) |
+| 047 | خَلِيفَة | sorumluluk sahibi |
+| 048 | ٱللَّٰهُ | Allah |
+| 049 | آدَمُ | Âdem |
+| 050 | نَارٌ | ateş |
+| 051 | كِتَابٌ | Kitap (vahiy) |
+| 052 | ٱلْأَرْضُ | yeryüzü |
+| 053 | ٱلسَّمَاءُ | gök |
+| 054 | هُدًى | doğru yol / kılavuzluk |
+| 055 | ٱلصِّرَاطُ ٱلْمُسْتَقِيمُ | dosdoğru yol |
+| 056 | ذَكَرَ | hatırladı / andı |
+| 057 | شَكَرَ | şükretti / nimetin farkında olup onu doğru ve yerinde kullandı (bağlama göre) |
+| 058 | تَوَكَّلَ | güvendi / dayandı |
+| 059 | تَابَ | tövbe etti / döndü |
+| 060 | أَوْفَى | yerine getirdi / vefâ etti |
+| 061 | نَقَضَ | bozdu / sözünü tutmadı |
+| 062 | قَطَعَ | kopardı / kesti |
+| 063 | خَلَقَ | yarattı / var etti |
+| 064 | جَعَلَ | kıldı / yaptı |
+| 065 | عَلَّمَ | öğretti |
+| 066 | هَدَى | doğru yola iletti |
+| 067 | أَضَلَّ | saptırdı |
+| 068 | بَشَّرَ | müjdeledi |
+| 069 | أَنْذَرَ | uyardı / sakındırdı |
+| 070 | يَعْلَمُ | bilir |
+| 071 | يَشْعُرُ | farkında olur / sezer |
+| 072 | يَعْقِلُ | akleder / aklını kullanır |
+| 073 | إِنَّ | kuşkusuz / şüphesiz |
+| 074 | أَلَا | dikkat edin! / iyi bilin ki |
+| 075 | فَلَا | sakın ... mayın |
+| 076 | إِلَّا | yalnızca / ancak |
+| 077 | مِن دُونِ | başka / dışında |
+| 078 | بَعْضُكُمْ لِبَعْضٍ | birbirinize / kiminiz kiminize |
+| 079 | ٱصْطَفَى / يَصْطَفِي | seçkin kıldı / özel olarak seçti |
+| 080 | صَالِحُونَ | iyiler / iyilik sahipleri / doğru olanlar |
+| 081 | أَسْلَمَ / يُسْلِمُ | teslim oldu / boyun eğdi / Allah'a yöneldi |
+| 082 | إِسْلَامٌ | teslimiyet / boyun eğme / Allah'a yönelme (özel terim olarak İslam, kullanıcı tercihi) |
+| 083 | وَصَّىٰ / يُوصِي | vasiyet etti / tavsiye etti |
+| 084 | مُسْلِمُونَ | O’na yönelmiş olanlar / teslim olanlar |
+| 085 | عَبَدَ / يَعْبُدُ | kulluk etti / kulluk eder, boyun eğdi / boyun eğer (bağlama göre) |
+| 086 | إِلَٰهٌ | yaratıcı / ilah (bağlama göre) |
+| 087 | كَسَبَ / يَكْسِبُ | kazandı / yaptı (bağlama göre) |
+| 088 | حَنِيفًا | doğruya yönelmiş / dosdoğru giden (bağlama göre) |
+| 089 | نَبِيٌّ / أَنْبِيَاءُ | peygamber / peygamberler |
+| 090 | سَمِيعٌ | işiten / duyan |
+| 091 | عَلِيمٌ | bilen / her şeyi bilen |
+| 092 | شَهَادَةٌ | bilgi / tanıklık (bağlama göre) |
+| 093 | كَتَمَ / يَكْتُمُ | gizledi / gizler || 094 | سَفِيهٌ / سُفَهَاءُ | kavrayışı sorunlu / anlayışsız (bağlama göre) |
+| 094 | سَفِيهٌ / سُفَهَاءُ | kavrayışı sorunlu / anlayışsız (bağlama göre) |
+| 095 | قِبْلَةٌ | kıble / yönelinilen yer (bağlama göre) |
+| 096 | وَلَّى / يُوَلِّي | yöneltti / değiştirdi / çevirdi (bağlama göre) |
+| 097 | شَهِيدٌ / شُهَدَاءُ | şahit / örnek / tanık (bağlama göre) |
+| 098 | أُمَّةٌ | toplum / ümmet (bağlama göre) |
+| 099 | وَسَطٌ | adil / dengeli (bağlama göre) |
+| 100 | رَءُوفٌ | şefkatli |
+| 101 | رَحِيمٌ | merhametli / esirgeyen / bağışlayıcı (bağlama göre) |
+| 102 | تَقَلَّبَ | çevirip durmak / yönelmek (bağlama göre) |
+| 103 | تَرْضَاهَا | hoşnut olduğu / memnun eden (bağlama göre) |
+| 104 | شَطْرَ | doğru / taraf (bağlama göre) 
+| 105 | آيَةٌ | delil / kanıt (bağlama göre) |
+| 107 | مُمْتَرِينَ | şüphe edenler / kuşku duyanlar (bağlama göre) |
+| 106 | أَهْوَاءٌ | arzular / hevesler (bağlama göre) |
+| 108 | وِجْهَةٌ | yön / yol / cihet (bağlama göre) |
+| 109 | خَيْرَاتٌ | iyi işler / iyilikler (bağlama göre) |
+| 110 | قَدِيرٌ | gücü yeten / kadir (bağlama göre) |
+| 111 | غَافِلٌ | habersiz / gafil (bağlama göre) |
+| 112 | حُجَّةٌ | delil / kanıt (bağlama göre) |
+| 113 | خَشِيَ / يَخْشَىٰ | korktu / korkar (bağlama göre) |
+| 114 | أَتَمَّ / يُتِمُّ | tamamladı / tamamlar |
+| 115 | تَلَا / يَتْلُو | okudu / okur / aktarır (bağlama göre) |
+| 116 | زَكَّىٰ / يُزَكِّي | arındırdı / arındırır / temizledi (bağlama göre) |
+| 117 | صَبْرٌ | sabır / dayanıklılık (bağlama göre) |
+| 118 | اسْتَعَانَ / يَسْتَعِينُ | güç buldu / güç bulur / yardım diledi (bağlama göre) |
+| 119 | قَتَلَ / يَقْتُلُ | öldürdü / öldürür |
+| 120 | سَبِيلُ اللَّهِ | Allah'ın yolu / hak yolu / doğru yol (bağlama göre) |
+| 121 | أَحْيَاءٌ | diriler / canlılar |
+| 122 | أَمْوَاتٌ | ölüler / ölü olanlar |
+| 123 | شَعَرَ / يَشْعُرُ | hissetti / hisseder / fark etti / bilebildi (bağlama göre) |
+| 124 | خَوْفٌ | korku / endişe (bağlama göre) |
+| 125 | جُوعٌ | açlık |
+| 126 | نَقْصٌ | eksilme / kayıp (bağlama göre) |
+| 127 | مَالٌ | mal / servet (bağlama göre) |
+| 128 | نَفْسٌ | can / nefis / kişi (bağlama göre) |
+| 129 | ثَمَرَةٌ | meyve / ürün (bağlama göre) |
+| 130 | بَلَا / يَبْلُو | imtihan etti / sınadı / denedi (bağlama göre) |
+| 131 | أَصَابَ / يُصِيبُ | isabet etti / başa geldi (bağlama göre) |
+| 132 | مُصِيبَةٌ | sıkıntı / zorluk / felaket (bağlama göre) |
+| 133 | رَجَعَ / يَرْجِعُ | döndü / döner / dönmek |
+| 134 | رَحْمَةٌ | lütuf / bağış / koruyucu destek (bağlama göre) |
+| 135 | صَلَوَاتٌ | destek / bağış / rahmet (bağlama göre) |
+| 136 | شَعَائِرُ | işaretler / semboller (bağlama göre) |
+| 137 | حَجَّ | hac yaptı (bağlama göre) |
+| 138 | اعْتَمَرَ | umre yaptı (bağlama göre) |
+| 139 | جُنَاحٌ | sakınca / günah (bağlama göre) |
+| 140 | طَافَ / يَطُوفُ | dolaştı / dolaşır (bağlama göre) |
+| 141 | تَطَوَّعَ | gönüllü oldu (bağlama göre) |
+| 142 | شَاكِرٌ | karşılığını veren / şükreden (bağlama göre) |
+| 143 | بَيِّنَةٌ | açık delil / apaçık kanıt (bağlama göre) |
+| 144 | لَاعِنٌ | lanet eden / rahmetten uzaklaştıran (bağlama göre) |
+
+
+2. TÜRKÇE ANLATIM TARZI:
+- Arapça söz dizimi dayatılmaz; doğal Türkçe cümleler kurulur.
+- Zamir zincirleri kırılır, özneler açıkça belirtilir.
+- Arapça bağlaçlar ("fe", "ve", "inne") Türkçe doğal karşılıklarla ("ama", "işte", "gerçek şu ki", "yoksa") çevrilir.
+- Her ayet için en az üç farklı çeviri örneği sunulur.
+- Hedef: Okurun yabancılaşmadığı, anlamın aktığı Türkçe.
+
+3. İNSAN İRADESİ VE İLAHİ TEPKİ DENGESİ:
+- "Allah mühürledi, lanetledi, saptırdı" gibi ifadeler, insan iradesini yok saymayacak şekilde çevrilir.
+- Sıralama: Önce insanın özgür tercihi, sonra Allah'ın bu tercihe uygun karşılığı.
+- Bu nedensellik zinciri çeviride görünür olmalıdır.
+
+4. ALLAH'IN CEZASI: RAHMETTEN YOKSUN BIRAKMA:
+- Allah'ın cezası, insanbiçimci öfke değil; rahmetinden, desteğinden yoksun bırakma olarak anlaşılır.
+- "Gadab" → "Yaptıklarının kötü karşılık doğurması"
+- "La'net" → "Rahmetten/destekten yoksun bırakma"
+- "Azap" → "Karşılık" veya "Alçaltıcı karşılık"
+
+5. BAĞLAMSAL AÇILIMLAR:
+- Hedef kitlenin anlaması için, metnin ruhuna uygun açılımlar yapılabilir.
+- Bağlamdan anlaşılan özel isimler (Tevrat, Kur'an, Yahudiler, peygamber) gerektiğinde metne yedirilebilir.
+
+6. ÇOK ANLAMLI KELİMELERE YAKLAŞIM:
+- Kök anlamı belirle, anlam katmanlarını listele, bağlama göre seç, alternatifleri sun, kelime listesine işle.
+
+7. KUR'AN'IN İNSANA YAKLAŞIM TARZI:
+- Önce insanın özgür tercihi, sonra Allah'ın uygun karşılığı. Allah zorlamaz; sonuçlar özgür tercih sebebiyledir. İyilik en az yapılan kadar, kötülük tam karşılığını bulur. Bu denge çeviride görünür olmalıdır.
+
+8. ÜSLUP VE VURGU:
+- Çeviriler duru, akıcı ve anlaşılır olmalı.
+- Arapça kökenli kelimelerden kaçınılmalı (namaz, sure, ayet, Allah, İblis, melek, secde gibi yerleşik özel terimler hariç).
+- Mecazlar ve derin anlamlar kelime kelime çeviriden önceliklidir.
+- Klasik külliyatın ısrarlı anlatımları kullanılmaz.
+- "Allah'a yönelerek namazı kılın" gibi ifadeler niyet boyutunu vurgular.
+- Her ayet çevirisinden önce en az üç alternatif sunulur.
+- Onaylanan çeviriler kalıcı listeye eklenir.
+- Zamirler ve özneler açıkça belirtilir.
+- "Yüzünü dönmek" → "Allah'a yönelmek".
+- Satış metaforu (اِشْتَرَوْا) → "Karşılığında elde ettikleri ne kötüdür!"
+
+9. REFERANS:
+- Kalıcı kelime listesi için tabloyu referans al.
+- Her ayet çevirisinden önce en az üç alternatif sun.
+- Onaylanan çeviriler kalıcı listeye eklenir.
+
+10. DEVAM VE GÜNCELLEME PROTOKOLÜ:
+
+- Yeni bir kelime tanımı ekleneceğinde, YZ bunu **"| No | Arapça | Türkçe Karşılık |"** düz yazı olarak, **bir sonraki sıra numarasıyla** birlikte sunar. Örnek:
+  | 085 | فِتْنَةٌ | sınav / zorluk / baştan çıkarıcı çağrı (bağlama göre) |
+- Kullanıcı bu satırı tablonun sonuna ekler.
+
+- Mevcut bir kelimeye yeni bir anlam katmanı ekleneceğinde, YZ **o kelimenin aynı sıra numarasını koruyarak** tüm anlamlarını kapsayan **güncel satırı** sunar. Örnek:
+  (Eski hâli: 006 | ٱلصَّلَوٰةُ | bağlama göre: namaz, dua |)
+  (Yeni hâli: 006 | ٱلصَّلَوٰةُ | bağlama göre: namaz, dua, fedakârlık, yardım |)
+
+- Yeni bir kelime önerisi sunulurken, kullanılacak format kesinlikle aşağıdaki gibi olmalıdır:
+
+| 087 | كَسَبَ / يَكْسِبُ | kazandı / yaptı (bağlama göre) |
+
+Başında | No | Arapça | Türkçe Karşılık | başlığı kullanılmaz. | 
+Sadece boru işaretleriyle ayrılmış üç sütun halinde, numara, Arapça kelime ve Türkçe karşılık yazılır.
+
+Açıklamalar, karşılık kısmının içinde parantez içinde belirtilir.
+
+Bu format, tüm yeni kelime önerileri ve güncellemeler için zorunludur.  
+
+- Kullanıcı bu satırı, tablodaki ilgili sıra numarasına sahip satırın yerine kopyalar. Bu yöntem, tablonun tekrarsız, düzenli ve her zaman güncel kalmasını sağlar.
+- Aynı zamanda YZ KALICI KELİME TERCİHLERİ Tablo içeriğini unutmaz  
+- Bir kelime için karar verildiğinde, bu karar kesindir ve bir daha tartışılmaz. Mevcut karar asla silinmez veya değiştirilmez; sadece yeni bir bağlam keşfedilirse ek açıklama ve öneri sunulabilir. Kabul edilirse mevcut anlamın devamına eklenmesi için öneri yapılabilir.
+- Bu talimatname bir kez gönderildikten sonra devam komutunu bekle.
+- Açıklama notu oluşturulması istendiğinde, eğer daha önce bir örnek HTML sayfası verilmediyse iste.
+
+11. ÇEVİRİ SÜRECİ PROTOKOLÜ (KESİNLEŞME VE İLERLEME):
+
+Başlangıç: Kullanıcı, "devam" komutu veya bir ayetin Arapça metni ya da sure+ayet numarasını gönderdiğinde, YZ o ayet için en az üç farklı alternatif çeviri sunar.
+
+Değerlendirme ve Geri Bildirim: Kullanıcı sunulan alternatifleri inceler. Kendi çevirisini veya düzeltme önerisini sunar, YZ'den incelemesini ve değerlendirmesini ister.
+
+Karşılıklı Beyin Fırtınası: YZ, kullanıcının önerisini değerlendirir. Gerekirse ek açıklamalar yapar, alternatif ifadeler önerir. Kullanıcı ile YZ arasında, ayetin en doğru ve akıcı Türkçe karşılığı bulunana kadar fikir alışverişi sürer.
+
+Onaylama: Kullanıcı, nihai çeviriyi "tamamdır" veya eşdeğer bir ifadeyle onaylar. YZ de bu çeviriyi metnin ruhuna ve talimatname kurallarına uygun bulduğunu teyit eder.
+
+Kelime Güncellemeleri: Onaylanan bu son versiyonda kullanılan ve tabloda henüz yer almayan ya da güncellenmesi gereken kelimeler için YZ, tek ve kesin bir öneri sunar (sıra numarasıyla birlikte).
+
+İlerleme: Kullanıcı bir sonraki ayet için "devam" komutunu veya yeni bir Arapça metin ya da sure+ayet numarasını gönderdiğinde, YZ bir önceki ayetin tüm sürecini kapanmış ve kesinleşmiş kabul eder ve yeni ayet için 1. adımdan itibaren işlemi tekrarlar.
+
+Bu protokol, her ayetin titizlikle ele alınmasını, kullanıcı ile YZ arasında sağlıklı bir iş birliği yürütülmesini ve kelime listesinin güncel ve doğru kalmasını sağlar.
+
+
+Bu kurallara göre devam edelim. "Ayetin Arapça metni veya hangi ayet ile devam edeceğimizi yazarsanız çeviriye başlayabilirim." mesajını yollayarak hazır olduğunu bildir.
+        </div>
+    </div>
+
+    <div class="footer">
+        📖 Bu talimatname, özgün meal çalışmasının bir parçasıdır.<br/>
+        🌿 Yeni sohbetlerde, bu metnin copy-box kısmını kopyalayarak kaldığınız yerden devam edebilirsiniz.
+    </div>
+</div>
+
+
+
+
+
+
+
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+</body>
+>>>>>>> 6b8844b52ca42136ce3e4fd1696a9cdb67b53fc5
 </html>
