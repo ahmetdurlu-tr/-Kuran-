@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Hûd (21-40) - Özgün Meal</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        color: #e0ddd8;}
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .sure-header {
+            background: #0f4c73;
+            color: white;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+        .sure-name-ar {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .sure-name-tr {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .sure-info {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .ayet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        .ayet-card {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+            border: 1px solid #3a3d3f;
+        }
+        .ayet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+        }
+        .ayet-num {
+            display: inline-block;
+            background: #0f4c73;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .arabic {
+            font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .meal {
+            font-size: 1.5rem;
+            color: #d5d2cb;
+            border-left: 4px solid #0f4c73;
+            padding-left: 1rem;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffecb3;
+            color: #856404;
+            padding: 0.75rem;
+            border-radius: 1rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 650px) {
+            .arabic { font-size: 1.4rem; }
+            .sure-name-ar { font-size: 1.7rem; }
+            .ayet-card { padding: 1rem; }
+            .meal { font-size: 1.1rem; }
+        }
+    
+
+
+
+
+
+
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #3a3d3f;
+    border-bottom: 1px solid #3a3d3f;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.page-nav .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0f4c73;
+    color: white;
+    padding: 0.65rem 1.6rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 2px 8px rgba(122, 134, 110, 0.25);
+    border: none;
+    cursor: pointer;
+}
+.page-nav .nav-btn:hover:not(.disabled) {
+    background: #0a3552;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(122, 134, 110, 0.4);
+}
+.page-nav .nav-btn:active:not(.disabled) {
+    transform: translateY(0);
+}
+.page-nav .nav-btn.disabled {
+    background: #a8b09e;
+    cursor: default;
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.page-nav .nav-btn .arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+.page-nav .page-indicator {
+    font-size: 0.9rem;
+    color: #d5d2cb;
+    font-weight: 500;
+    background: #3a3d3f;
+    padding: 0.3rem 1.2rem;
+    border-radius: 2rem;
+    letter-spacing: 0.3px;
+}
+
+
+@media (max-width: 650px) {
+    .page-nav .nav-btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    .page-nav {
+        gap: 1rem;
+    }
+}
+
+    
+        
+    }
+
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    </style>
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="sure-header">
+<div class="sure-name-ar">هُود</div>
+<div class="sure-name-tr">Hûd (11. Sure)</div>
+<div class="sure-info">123 Ayet 21 - 40 | Özgün Türkçe Meal</div>
+</div>
+<div class="ayet-list">
+<div class="ayet-card" id="ayet-21">
+<div class="ayet-num">Hûd - Ayet 21</div>
+<div class="arabic">أُو۟لَٰٓئِكَ ٱلَّذِينَ خَسِرُوٓا۟ أَنفُسَهُمْ وَضَلَّ عَنْهُم مَّا كَانُوا۟ يَفْتَرُونَ</div>
+<div class="meal">İşte onlar, kendilerini hüsrana uğratanlardır. Uydurup durdukları putlar da onlardan uzaklaşıp kaybolmuştur.</div>
+</div>
+<div class="ayet-card" id="ayet-22">
+<div class="ayet-num">Hûd - Ayet 22</div>
+<div class="arabic">لَا جَرَمَ أَنَّهُمْ فِى ٱلْـَٔاخِرَةِ هُمُ ٱلْأَخْسَرُونَ</div>
+<div class="meal">Hiç kuşkusuz, ahirette en çok kaybedenler de onlardır.</div>
+</div>
+<div class="ayet-card" id="ayet-23">
+<div class="ayet-num">Hûd - Ayet 23</div>
+<div class="arabic">إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَأَخْبَتُوٓا۟ إِلَىٰ رَبِّهِمْ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْجَنَّةِ هُمْ فِيهَا خَٰلِدُونَ</div>
+<div class="meal">İman edip iyi işler yapan ve Rablerine gönülden boyun eğenlere gelince, işte onlar cennet ehlidir. Orada ebedî kalacaklardır.</div>
+</div>
+<div class="ayet-card" id="ayet-24">
+<div class="ayet-num">Hûd - Ayet 24</div>
+<div class="arabic">مَثَلُ ٱلْفَرِيقَيْنِ كَٱلْأَعْمَىٰ وَٱلْأَصَمِّ وَٱلْبَصِيرِ وَٱلسَّمِيعِ هَلْ يَسْتَوِيَانِ مَثَلًا أَفَلَا تَذَكَّرُونَ</div>
+<div class="meal">Bu iki grubun durumu, kör ve sağır ile gören ve işiten birbirine benzer mi? Hiç düşünmez misiniz?</div>
+</div>
+<div class="ayet-card" id="ayet-25">
+<div class="ayet-num">Hûd - Ayet 25</div>
+<div class="arabic">وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦٓ إِنِّى لَكُمْ نَذِيرٌ مُّبِينٌ</div>
+<div class="meal">Andolsun ki Nuh’u kavmine göndermiştik. (Demişti ki:) “Şüphesiz ben sizin için apaçık bir uyarıcıyım.”</div>
+</div>
+<div class="ayet-card" id="ayet-26">
+<div class="ayet-num">Hûd - Ayet 26</div>
+<div class="arabic">أَن لَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ إِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ أَلِيمٍ</div>
+<div class="meal">“Allah’tan başkasına kulluk etmeyin. Gerçekten ben, sizin için acı bir günün azabından korkuyorum.”</div>
+</div>
+<div class="ayet-card" id="ayet-27">
+<div class="ayet-num">Hûd - Ayet 27</div>
+<div class="arabic">فَقَالَ ٱلْمَلَأُ ٱلَّذِينَ كَفَرُوا۟ مِن قَوْمِهِۦ مَا نَرَىٰكَ إِلَّا بَشَرًا مِّثْلَنَا وَمَا نَرَىٰكَ ٱتَّبَعَكَ إِلَّا ٱلَّذِينَ هُمْ أَرَاذِلُنَا بَادِىَ ٱلرَّأْىِ وَمَا نَرَىٰ لَكُمْ عَلَيْنَا مِن فَضْلٍۭ بَلْ نَظُنُّكُمْ كَٰذِبِينَ</div>
+<div class="meal">Kavminin ileri gelen inkârcıları şöyle dedi: “Biz seni de ancak bizim gibi bir insan olarak görüyoruz. Sana, ayak takımımızdan, düşüncesizce uyanlardan başkasının tabi olduğunu da görmüyoruz. Sizin bize karşı bir üstünlüğünüzü de görmüyoruz. Aksine, sizi yalancı sayıyoruz.”</div>
+</div>
+<div class="ayet-card" id="ayet-28">
+<div class="ayet-num">Hûd - Ayet 28</div>
+<div class="arabic">قَالَ يَٰقَوْمِ أَرَءَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍ مِّن رَّبِّى وَءَاتَىٰنِى رَحْمَةً مِّنْ عِندِهِۦ فَعُمِّيَتْ عَلَيْكُمْ أَنُلْزِمُكُمُوهَا وَأَنتُمْ لَهَا كَٰرِهُونَ</div>
+<div class="meal">Nuh dedi ki: “Ey kavmim! Söyleyin bakalım, eğer ben Rabbimden apaçık bir delil üzerinde isem ve O bana kendi katından bir rahmet vermiş de bu sizce gizli kalmışsa, istemediğiniz halde sizi buna zorlayabilir miyiz?”</div>
+</div>
+<div class="ayet-card" id="ayet-29">
+<div class="ayet-num">Hûd - Ayet 29</div>
+<div class="arabic">وَيَٰقَوْمِ لَآ أَسْـَٔلُكُمْ عَلَيْهِ مَالًا إِنْ أَجْرِىَ إِلَّا عَلَى ٱللَّهِ وَمَآ أَنَا۠ بِطَارِدِ ٱلَّذِينَ ءَامَنُوٓا۟ إِنَّهُم مُّلَٰقُوا۟ رَبِّهِمْ وَلَٰكِنِّىٓ أَرَىٰكُمْ قَوْمًا تَجْهَلُونَ</div>
+<div class="meal">“Ey kavmim! Ben sizden buna karşılık bir mal istemiyorum. Benim mükâfatım yalnızca Allah’a aittir. Ben iman edenleri kovacak değilim. Onlar kesinlikle Rablerine kavuşacaklardır. Fakat ben sizi cahillik eden bir topluluk olarak görüyorum.”</div>
+</div>
+<div class="ayet-card" id="ayet-30">
+<div class="ayet-num">Hûd - Ayet 30</div>
+<div class="arabic">وَيَٰقَوْمِ مَن يَنصُرُنِى مِنَ ٱللَّهِ إِن طَرَدتُّهُمْ أَفَلَا تَذَكَّرُونَ</div>
+<div class="meal">“Ey kavmim! Eğer onları kovarsam, beni Allah’tan kim kurtarır? Hiç düşünmez misiniz?”</div>
+</div>
+<div class="ayet-card" id="ayet-31">
+<div class="ayet-num">Hûd - Ayet 31</div>
+<div class="arabic">وَلَآ أَقُولُ لَكُمْ عِندِى خَزَآئِنُ ٱللَّهِ وَلَآ أَعْلَمُ ٱلْغَيْبَ وَلَآ أَقُولُ إِنِّى مَلَكٌ وَلَآ أَقُولُ لِلَّذِينَ تَزْدَرِىٓ أَعْيُنُكُمْ لَن يُؤْتِيَهُمُ ٱللَّهُ خَيْرًا ٱللَّهُ أَعْلَمُ بِمَا فِىٓ أَنفُسِهِمْ إِنِّىٓ إِذًا لَّمِنَ ٱلظَّٰلِمِينَ</div>
+<div class="meal">“Size, ‘Allah’ın hazineleri benim yanımdadır’ demiyorum. Gaybı da bilmem. ‘Ben bir meleğim’ de demiyorum. Gözlerinizin hor gördüğü kimselere ‘Allah onlara asla bir hayır vermeyecek’ de diyemem. Onların içlerinde ne olduğunu Allah daha iyi bilir. Eğer bunları söylersem o zaman zalimlerden olurum.”</div>
+</div>
+<div class="ayet-card" id="ayet-32">
+<div class="ayet-num">Hûd - Ayet 32</div>
+<div class="arabic">قَالُوا۟ يَٰنُوحُ قَدْ جَٰدَلْتَنَا فَأَكْثَرْتَ جِدَٰلَنَا فَأْتِنَا بِمَا تَعِدُنَآ إِن كُنتَ مِنَ ٱلصَّٰدِقِينَ</div>
+<div class="meal">Dediler ki: “Ey Nuh! Bizimle çok uğraştın ve tartışmayı uzattın. Eğer doğru sözlülerden isen, bizi tehdit ettiğin azabı getir bakalım!”</div>
+</div>
+<div class="ayet-card" id="ayet-33">
+<div class="ayet-num">Hûd - Ayet 33</div>
+<div class="arabic">قَالَ إِنَّمَا يَأْتِيكُم بِهِ ٱللَّهُ إِن شَآءَ وَمَآ أَنتُم بِمُعْجِزِينَ</div>
+<div class="meal">Nuh dedi: “Onu size ancak Allah dilerse getirir. Siz onu engelleyemezsiniz.”</div>
+</div>
+<div class="ayet-card" id="ayet-34">
+<div class="ayet-num">Hûd - Ayet 34</div>
+<div class="arabic">وَلَا يَنفَعُكُمْ نُصْحِىٓ إِنْ أَرَدتُّ أَنْ أَنصَحَ لَكُمْ إِن كَانَ ٱللَّهُ يُرِيدُ أَن يُغْوِيَكُمْ هُوَ رَبُّكُمْ وَإِلَيْهِ تُرْجَعُونَ</div>
+<div class="meal">“Allah sizi saptırmayı istemişse, ben size öğüt vermek istesem de öğüdüm size fayda vermez. O sizin Rabbinizdir ve ancak O’na döndürüleceksiniz.”</div>
+</div>
+<div class="ayet-card" id="ayet-35">
+<div class="ayet-num">Hûd - Ayet 35</div>
+<div class="arabic">أَمْ يَقُولُونَ ٱفْتَرَىٰهُ قُلْ إِنِ ٱفْتَرَيْتُهُۥ فَعَلَىَّ إِجْرَامِى وَأَنَا۠ بَرِىٓءٌ مِّمَّا تُجْرِمُونَ</div>
+<div class="meal">Yoksa “Onu (Kur’an’ı) uydurdu” mu diyorlar? De ki: “Eğer onu uydurduysam suçu bana aittir. Fakat ben sizin işlediğiniz suçlardan uzağım.”</div>
+</div>
+<div class="ayet-card" id="ayet-36">
+<div class="ayet-num">Hûd - Ayet 36</div>
+<div class="arabic">وَأُوحِىَ إِلَىٰ نُوحٍ أَنَّهُۥ لَن يُؤْمِنَ مِن قَوْمِكَ إِلَّا مَن قَدْ ءَامَنَ فَلَا تَبْتَئِسْ بِمَا كَانُوا۟ يَفْعَلُونَ</div>
+<div class="meal">Nuh’a vahyolundu ki: “Kavminden iman edenlerin dışında kimse iman etmeyecek. Öyleyse onların yaptıklarına üzülme.”</div>
+</div>
+<div class="ayet-card" id="ayet-37">
+<div class="ayet-num">Hûd - Ayet 37</div>
+<div class="arabic">وَٱصْنَعِ ٱلْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا وَلَا تُخَٰطِبْنِى فِى ٱلَّذِينَ ظَلَمُوٓا۟ إِنَّهُم مُّغْرَقُونَ</div>
+<div class="meal">“Gözlerimizin önünde ve vahyimizle gemiyi yap. Zulmedenler hakkında bana yalvarma! Onlar kesinlikle boğulacaklardır.”</div>
+</div>
+<div class="ayet-card" id="ayet-38">
+<div class="ayet-num">Hûd - Ayet 38</div>
+<div class="arabic">وَيَصْنَعُ ٱلْفُلْكَ وَكُلَّمَا مَرَّ عَلَيْهِ مَلَأٌ مِّن قَوْمِهِۦ سَخِرُوا۟ مِنْهُ قَالَ إِن تَسْخَرُوا۟ مِنَّا فَإِنَّا نَسْخَرُ مِنكُمْ كَمَا تَسْخَرُونَ</div>
+<div class="meal">Nuh gemiyi yapıyordu. Kavminden herhangi bir grup ona uğradıkça onunla alay ediyorlardı. Nuh dedi ki: “Bizimle alay ediyorsanız, iyi bilin ki biz de sizin gibi alay edeceğiz.”</div>
+</div>
+<div class="ayet-card" id="ayet-39">
+<div class="ayet-num">Hûd - Ayet 39</div>
+<div class="arabic">فَسَوْفَ تَعْلَمُونَ مَن يَأْتِيهِ عَذَابٌ يُخْزِيهِ وَيَحِلُّ عَلَيْهِ عَذَابٌ مُّقِيمٌ</div>
+<div class="meal">“İleride bileceksiniz, alçaltıcı azap kime gelecek ve sürekli azap kimin başına inecek!”</div>
+</div>
+<div class="ayet-card" id="ayet-40">
+<div class="ayet-num">Hûd - Ayet 40</div>
+<div class="arabic">حَتَّىٰٓ إِذَا جَآءَ أَمْرُنَا وَفَارَ ٱلتَّنُّورُ قُلْنَا ٱحْمِلْ فِيهَا مِن كُلٍّ زَوْجَيْنِ ٱثْنَيْنِ وَأَهْلَكَ إِلَّا مَن سَبَقَ عَلَيْهِ ٱلْقَوْلُ وَمَنْ ءَامَنَ وَمَآ ءَامَنَ مَعَهُۥٓ إِلَّا قَلِيلٌ</div>
+<div class="meal">Nihayet emrimiz gelip tandır kaynayınca, Nuh’a şöyle dedik: “Her canlıdan birer çifti, aleyhinde hüküm verilmiş olanlar dışında aileni ve iman edenleri gemiye yükle.” Zaten onunla birlikte pek azı iman etmişti.</div>
+</div>
+<div class="page-nav"><a class="nav-btn" href="011_Hûd_1-20.html"><span class="arrow">←</span> Önceki</a><span class="page-indicator">Sayfa 81 / 340</span><a class="nav-btn" href="011_Hûd_41-60.html">Sonraki <span class="arrow">→</span></a></div> <div class="page-footer">
+<i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br/>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br/>
+<span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;" target="_blank">-ard-</a></span>
+</div>
+</div>
+</div>
+<!-- Ana Sayfa Butonu - Phosphor Bold -->
+<!-- Ana Sayfa Butonu -->
+<style>
+.home-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999999;
+    background: #0f4c73 !important;
+    color: #ffffff !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255,255,255,0.12);
+}
+.home-btn svg {
+    width: 28px;
+    height: 28px;
+    transition: all 0.4s ease;
+    color: #ffffff !important;
+}
+.home-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 35px rgba(0,0,0,0.5);
+    background: #0a3552 !important;
+    border-color: rgba(255,255,255,0.25);
+}
+.home-btn:hover svg {
+    transform: rotate(180deg) scale(1.1);
+    color: #ffffff !important;
+}
+.home-btn:active {
+    transform: scale(0.95);
+}
+.home-btn .tooltip {
+    position: absolute;
+    right: 72px;
+    background: rgba(30,30,30,0.95);
+    color: #e0ddd8;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+.home-btn:hover .tooltip {
+    opacity: 1;
+}
+@media (max-width: 650px) {
+    .home-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    .home-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+    .home-btn .tooltip {
+        display: none;
+    }
+}
+</style>
+<a class="home-btn" href="index.html" title="Ana Sayfa">
+<span class="tooltip">⌂ Ana Sayfa</span>
+<svg height="28" viewbox="0 0 256 256" width="28" xmlns="http://www.w3.org/2000/svg">
+<rect fill="none" height="256" width="256"></rect>
+<circle cx="60" cy="60" fill="currentColor" r="16"></circle>
+<circle cx="128" cy="60" fill="currentColor" r="16"></circle>
+<circle cx="196" cy="60" fill="currentColor" r="16"></circle>
+<circle cx="60" cy="128" fill="currentColor" r="16"></circle>
+<circle cx="128" cy="128" fill="currentColor" r="16"></circle>
+<circle cx="196" cy="128" fill="currentColor" r="16"></circle>
+<circle cx="60" cy="196" fill="currentColor" r="16"></circle>
+<circle cx="128" cy="196" fill="currentColor" r="16"></circle>
+<circle cx="196" cy="196" fill="currentColor" r="16"></circle>
+</svg>
+</a>
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+<script src="navigation-fixer.js"></script>
+</body>
+</html>

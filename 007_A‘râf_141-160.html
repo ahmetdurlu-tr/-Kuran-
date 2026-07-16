@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>A‘râf (141-160) - Özgün Meal</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        color: #e0ddd8;}
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .sure-header {
+            background: #0f4c73;
+            color: white;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+        .sure-name-ar {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .sure-name-tr {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .sure-info {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .ayet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        .ayet-card {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+            border: 1px solid #3a3d3f;
+        }
+        .ayet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+        }
+        .ayet-num {
+            display: inline-block;
+            background: #0f4c73;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .arabic {
+            font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .meal {
+            font-size: 1.5rem;
+            color: #d5d2cb;
+            border-left: 4px solid #0f4c73;
+            padding-left: 1rem;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 650px) {
+            .arabic { font-size: 1.4rem; }
+            .sure-name-ar { font-size: 1.7rem; }
+            .ayet-card { padding: 1rem; }
+        }
+    
+
+
+
+
+
+
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #3a3d3f;
+    border-bottom: 1px solid #3a3d3f;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.page-nav .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0f4c73;
+    color: white;
+    padding: 0.65rem 1.6rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 2px 8px rgba(122, 134, 110, 0.25);
+    border: none;
+    cursor: pointer;
+}
+.page-nav .nav-btn:hover:not(.disabled) {
+    background: #0a3552;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(122, 134, 110, 0.4);
+}
+.page-nav .nav-btn:active:not(.disabled) {
+    transform: translateY(0);
+}
+.page-nav .nav-btn.disabled {
+    background: #a8b09e;
+    cursor: default;
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.page-nav .nav-btn .arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+.page-nav .page-indicator {
+    font-size: 0.9rem;
+    color: #d5d2cb;
+    font-weight: 500;
+    background: #3a3d3f;
+    padding: 0.3rem 1.2rem;
+    border-radius: 2rem;
+    letter-spacing: 0.3px;
+}
+
+
+@media (max-width: 650px) {
+    .page-nav .nav-btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    .page-nav {
+        gap: 1rem;
+    }
+}
+
+    
+        
+    }
+
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    </style>
+
+
+
+
+
+
+
+
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="sure-header">
+<div class="sure-name-ar">الأعراف</div>
+<div class="sure-name-tr">A‘râf (7. Sure)</div>
+<div class="sure-info">206 Ayet 141 - 160 | Özgün Türkçe Meal</div>
+</div>
+<div class="ayet-list">
+<div class="ayet-card" id="ayet-141">
+<div class="ayet-num">A‘râf - Ayet 141</div>
+<div class="arabic">وَإِذْ أَنجَيْنَٰكُم مِّنْ ءَالِ فِرْعَوْنَ يَسُومُونَكُمْ سُوٓءَ ٱلْعَذَابِ يُقَتِّلُونَ أَبْنَآءَكُمْ وَيَسْتَحْيُونَ نِسَآءَكُمْ وَفِى ذَٰلِكُم بَلَآءٌ مِّن رَّبِّكُمْ عَظِيمٌ</div>
+<div class="meal">Hatırlayın ki, sizi Firavun hanedanından kurtardık. Onlar size azabın en kötüsünü reva görüyor, oğullarınızı boğazlıyor, kadınlarınızı sağ bırakıyorlardı. Bunda Rabbinizden büyük bir imtihan vardı.</div>
+</div>
+<div class="ayet-card" id="ayet-142">
+<div class="ayet-num">A‘râf - Ayet 142</div>
+<div class="arabic">وَوَٰعَدْنَا مُوسَىٰ ثَلَٰثِينَ لَيْلَةً وَأَتْمَمْنَٰهَا بِعَشْرٍ فَتَمَّ مِيقَٰتُ رَبِّهِۦٓ أَرْبَعِينَ لَيْلَةً وَقَالَ مُوسَىٰ لِأَخِيهِ هَٰرُونَ ٱخْلُفْنِى فِى قَوْمِى وَأَصْلِحْ وَلَا تَتَّبِعْ سَبِيلَ ٱلْمُفْسِدِينَ</div>
+<div class="meal">Mûsâ ile otuz gece sözleştik, buna on gece daha ekleyerek tamamladık; böylece Rabbinin belirlediği süre kırk geceyi buldu. Mûsâ, kardeşi Hârûn’a: “Kavmim içinde benim yerime geç, onları düzelt ve bozguncuların yoluna uyma” dedi.</div>
+</div>
+<div class="ayet-card" id="ayet-143">
+<div class="ayet-num">A‘râf - Ayet 143</div>
+<div class="arabic">وَلَمَّا جَآءَ مُوسَىٰ لِمِيقَٰتِنَا وَكَلَّمَهُۥ رَبُّهُۥ قَالَ رَبِّ أَرِنِىٓ أَنظُرْ إِلَيْكَ قَالَ لَن تَرَىٰنِى وَلَٰكِنِ ٱنظُرْ إِلَى ٱلْجَبَلِ فَإِنِ ٱسْتَقَرَّ مَكَانَهُۥ فَسَوْفَ تَرَىٰنِى فَلَمَّا تَجَلَّىٰ رَبُّهُۥ لِلْجَبَلِ جَعَلَهُۥ دَكًّا وَخَرَّ مُوسَىٰ صَعِقًا فَلَمَّآ أَفَاقَ قَالَ سُبْحَٰنَكَ تُبْتُ إِلَيْكَ وَأَنَا۠ أَوَّلُ ٱلْمُؤْمِنِينَ</div>
+<div class="meal">Mûsâ, belirlediğimiz vakitte gelince Rabbi onunla konuştu. (Mûsâ) dedi: “Rabbim, bana görün; sana bakayım.” (Allah) buyurdu: “Beni kesinlikle göremezsin. Fakat şu dağa bak; eğer yerinde durursa o zaman beni göreceksin.” Rabbi dağa tecelli edince onu paramparça etti; Mûsâ da bayılıp yere düştü. Ayılınca: “Seni noksanlıklardan tenzih ederim, sana tövbe ettim. Ben inananların ilkiyim.” dedi.</div>
+</div>
+<div class="ayet-card" id="ayet-144">
+<div class="ayet-num">A‘râf - Ayet 144</div>
+<div class="arabic">قَالَ يَٰمُوسَىٰٓ إِنِّى ٱصْطَفَيْتُكَ عَلَى ٱلنَّاسِ بِرِسَٰلَٰتِى وَبِكَلَٰمِى فَخُذْ مَآ ءَاتَيْتُكَ وَكُن مِّنَ ٱلشَّٰكِرِينَ</div>
+<div class="meal">(Allah) buyurdu: “Ey Mûsâ, ben seni mesajlarımla ve sözümla diğer insanlara üstün kıldım. Sana verdiğimi al ve şükredenlerden ol.”</div>
+</div>
+<div class="ayet-card" id="ayet-145">
+<div class="ayet-num">A‘râf - Ayet 145</div>
+<div class="arabic">وَكَتَبْنَا لَهُۥ فِى ٱلْأَلْوَاحِ مِن كُلِّ شَىْءٍ مَّوْعِظَةً وَتَفْصِيلًا لِّكُلِّ شَىْءٍ فَخُذْهَا بِقُوَّةٍ وَأْمُرْ قَوْمَكَ يَأْخُذُوا۟ بِأَحْسَنِهَا سَأُو۟رِيكُمْ دَارَ ٱلْفَٰسِقِينَ</div>
+<div class="meal">Levh‑lerde her şeye dair bir öğüt ve her şeyi açıklayan bir ayrıntı yazdık. “Onları güçlüce tut, kavmine de en güzel şekilde uygulamalarını emret. Size, yoldan çıkanların yurdunu göstereceğim.”</div>
+</div>
+<div class="ayet-card" id="ayet-146">
+<div class="ayet-num">A‘râf - Ayet 146</div>
+<div class="arabic">سَأَصْرِفُ عَنْ ءَايَٰتِىَ ٱلَّذِينَ يَتَكَبَّرُونَ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَإِن يَرَوْا۟ كُلَّ ءَايَةٍ لَّا يُؤْمِنُوا۟ بِهَا وَإِن يَرَوْا۟ سَبِيلَ ٱلرُّشْدِ لَا يَتَّخِذُوهُ سَبِيلًا وَإِن يَرَوْا۟ سَبِيلَ ٱلْغَىِّ يَتَّخِذُوهُ سَبِيلًا ذَٰلِكَ بِأَنَّهُمْ كَذَّبُوا۟ بِـَٔايَٰتِنَا وَكَانُوا۟ عَنْهَا غَٰفِلِينَ</div>
+<div class="meal">Yeryüzünde haksız yere büyüklük taslayanları ayetlerimden uzaklaştıracağım. Her mucizeyi görseler de inanmazlar. Doğru yolu görseler onu yol edinmezler; sapıklık yolunu görseler hemen ona saparlar. Bunun sebebi, onların ayetlerimizi yalanlamaları ve onlardan gafil olmalarıdır.</div>
+</div>
+<div class="ayet-card" id="ayet-147">
+<div class="ayet-num">A‘râf - Ayet 147</div>
+<div class="arabic">وَٱلَّذِينَ كَذَّبُوا۟ بِـَٔايَٰتِنَا وَلِقَآءِ ٱلْـَٔاخِرَةِ حَبِطَتْ أَعْمَٰلُهُمْ هَلْ يُجْزَوْنَ إِلَّا مَا كَانُوا۟ يَعْمَلُونَ</div>
+<div class="meal">Ayetlerimizi ve ahirete kavuşmayı yalanlayanların bütün yaptıkları boşa gitmiştir. Onlar, ancak yaptıklarının karşılığını görürler.</div>
+</div>
+<div class="ayet-card" id="ayet-148">
+<div class="ayet-num">A‘râf - Ayet 148</div>
+<div class="arabic">وَٱتَّخَذَ قَوْمُ مُوسَىٰ مِنۢ بَعْدِهِۦ مِنْ حُلِيِّهِمْ عِجْلًا جَسَدًا لَّهُۥ خُوَارٌ أَلَمْ يَرَوْا۟ أَنَّهُۥ لَا يُكَلِّمُهُمْ وَلَا يَهْدِيهِمْ سَبِيلًا ٱتَّخَذُوهُ وَكَانُوا۟ ظَٰلِمِينَ</div>
+<div class="meal">Mûsâ’nın ardından kavmi, takılarından böğüren bir buzağı heykeli yaptılar. Onun kendileriyle konuşmadığını ve onlara bir yol göstermediğini görmediler mi? Onu (tanrı) edindiler ve zalim oldular.</div>
+</div>
+<div class="ayet-card" id="ayet-149">
+<div class="ayet-num">A‘râf - Ayet 149</div>
+<div class="arabic">وَلَمَّا سُقِطَ فِىٓ أَيْدِيهِمْ وَرَأَوْا۟ أَنَّهُمْ قَدْ ضَلُّوا۟ قَالُوا۟ لَئِن لَّمْ يَرْحَمْنَا رَبُّنَا وَيَغْفِرْ لَنَا لَنَكُونَنَّ مِنَ ٱلْخَٰسِرِينَ</div>
+<div class="meal">Piyaman olup çaresiz kaldıklarında ve gerçekten sapıttıklarını anlayınca: “Eğer Rabbimiz bize merhamet etmez ve bizi bağışlamazsa mutlaka hüsrana uğrayanlardan olacağız.” dediler.</div>
+</div>
+<div class="ayet-card" id="ayet-150">
+<div class="ayet-num">A‘râf - Ayet 150</div>
+<div class="arabic">وَلَمَّا رَجَعَ مُوسَىٰٓ إِلَىٰ قَوْمِهِۦ غَضْبَٰنَ أَسِفًا قَالَ بِئْسَمَا خَلَفْتُمُونِى مِنۢ بَعْدِىٓ أَعَجِلْتُمْ أَمْرَ رَبِّكُمْ وَأَلْقَى ٱلْأَلْوَاحَ وَأَخَذَ بِرَأْسِ أَخِيهِ يَجُرُّهُۥٓ إِلَيْهِ قَالَ ٱبْنَ أُمَّ إِنَّ ٱلْقَوْمَ ٱسْتَضْعَفُونِى وَكَادُوا۟ يَقْتُلُونَنِى فَلَا تُشْمِتْ بِىَ ٱلْأَعْدَآءَ وَلَا تَجْعَلْنِى مَعَ ٱلْقَوْمِ ٱلظَّٰلِمِينَ</div>
+<div class="meal">Mûsâ, kızgın ve üzgün bir şekilde kavmine döndüğünde: “Benden sonra ne kötü işler yapmışsınız. Rabbinizin emrini beklemeyip acele mi ettiniz?” dedi, levhaları yere attı ve kardeşi Hârûn’un başına yapışıp kendine doğru çekti. (Hârûn:) “Ey anamın oğlu, bu kavim beni yetersiz gördü, neredeyse beni öldüreceklerdi. Düşmanları bana sevindirme, beni zalimler topluluğuyla bir tutma.” dedi.</div>
+</div>
+<div class="ayet-card" id="ayet-151">
+<div class="ayet-num">A‘râf - Ayet 151</div>
+<div class="arabic">قَالَ رَبِّ ٱغْفِرْ لِى وَلِأَخِى وَأَدْخِلْنَا فِى رَحْمَتِكَ وَأَنتَ أَرْحَمُ ٱلرَّٰحِمِينَ</div>
+<div class="meal">(Mûsâ) dedi: “Rabbim, beni ve kardeşimi bağışla, bizi rahmetine kavuştur. Sen merhametlilerin en merhametlisisin.”</div>
+</div>
+<div class="ayet-card" id="ayet-152">
+<div class="ayet-num">A‘râf - Ayet 152</div>
+<div class="arabic">إِنَّ ٱلَّذِينَ ٱتَّخَذُوا۟ ٱلْعِجْلَ سَيَنَالُهُمْ غَضَبٌ مِّن رَّبِّهِمْ وَذِلَّةٌ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا وَكَذَٰلِكَ نَجْزِى ٱلْمُفْتَرِينَ</div>
+<div class="meal">Buzağıyı (tanrı) edinenlere, Rablerinden bir gazap ve dünya hayatında bir aşağılanma ulaşacaktır. İftira edenleri işte böyle cezalandırırız.</div>
+</div>
+<div class="ayet-card" id="ayet-153">
+<div class="ayet-num">A‘râf - Ayet 153</div>
+<div class="arabic">وَٱلَّذِينَ عَمِلُوا۟ ٱلسَّيِّـَٔاتِ ثُمَّ تَابُوا۟ مِنۢ بَعْدِهَا وَءَامَنُوٓا۟ إِنَّ رَبَّكَ مِنۢ بَعْدِهَا لَغَفُورٌ رَّحِيمٌ</div>
+<div class="meal">Kötülükler işleyip ardından tövbe edip iman edenlere gelince, şüphesiz Rabbin bundan sonra elbette bağışlayandır, merhametlidir.</div>
+</div>
+<div class="ayet-card" id="ayet-154">
+<div class="ayet-num">A‘râf - Ayet 154</div>
+<div class="arabic">وَلَمَّا سَكَتَ عَن مُّوسَى ٱلْغَضَبُ أَخَذَ ٱلْأَلْوَاحَ وَفِى نُسْخَتِهَا هُدًى وَرَحْمَةٌ لِّلَّذِينَ هُمْ لِرَبِّهِمْ يَرْهَبُونَ</div>
+<div class="meal">Mûsâ’nın öfkesi yatışınca levhaları aldı. Onların nüshasında, Rablerinden korkanlar için yol gösterici ve rahmet vardı.</div>
+</div>
+<div class="ayet-card" id="ayet-155">
+<div class="ayet-num">A‘râf - Ayet 155</div>
+<div class="arabic">وَٱخْتَارَ مُوسَىٰ قَوْمَهُۥ سَبْعِينَ رَجُلًا لِّمِيقَٰتِنَا فَلَمَّآ أَخَذَتْهُمُ ٱلرَّجْفَةُ قَالَ رَبِّ لَوْ شِئْتَ أَهْلَكْتَهُم مِّن قَبْلُ وَإِيَّٰىَ أَتُهْلِكُنَا بِمَا فَعَلَ ٱلسُّفَهَآءُ مِنَّآ إِنْ هِىَ إِلَّا فِتْنَتُكَ تُضِلُّ بِهَا مَن تَشَآءُ وَتَهْدِى مَن تَشَآءُ أَنتَ وَلِيُّنَا فَٱغْفِرْ لَنَا وَٱرْحَمْنَا وَأَنتَ خَيْرُ ٱلْغَٰفِرِينَ</div>
+<div class="meal">Mûsâ, belirlediğimiz vakit için kavminden yetmiş adam seçti. Derken onları şiddetli bir sarsıntı yakalayınca (Mûsâ:) “Rabbim, dileseydin onları da beni de daha önce helâk ederdin. İçimizdeki beyinsizlerin yaptıkları yüzünden bizi helâk mı edeceksin? Bu, senin imtihanından başka bir şey değil; sen onunla dilediğini saptırır, dilediğini doğru yola iletirsin. Sen bizim velimizsin; bizi bağışla, bize merhamet et! Sen bağışlayanların en hayırlısısın.” dedi.</div>
+</div>
+<div class="ayet-card" id="ayet-156">
+<div class="ayet-num">A‘râf - Ayet 156</div>
+<div class="arabic">وَٱكْتُبْ لَنَا فِى هَٰذِهِ ٱلدُّنْيَا حَسَنَةً وَفِى ٱلْـَٔاخِرَةِ إِنَّا هُدْنَآ إِلَيْكَ قَالَ عَذَابِىٓ أُصِيبُ بِهِۦ مَنْ أَشَآءُ وَرَحْمَتِى وَسِعَتْ كُلَّ شَىْءٍ فَسَأَكْتُبُهَا لِلَّذِينَ يَتَّقُونَ وَيُؤْتُونَ ٱلزَّكَوٰةَ وَٱلَّذِينَ هُم بِـَٔايَٰتِنَا يُؤْمِنُونَ</div>
+<div class="meal">“Bize bu dünyada da iyilik yaz, ahirette de. Şüphesiz biz sana yöneldik.” (Allah) buyurdu: “Azabıma dilediğimi uğratırım; rahmetim ise her şeyi kuşatmıştır. Onu, sakınanlara, zekâtı verenlere ve ayetlerimize iman edenlere yazacağım.”</div>
+</div>
+<div class="ayet-card" id="ayet-157">
+<div class="ayet-num">A‘râf - Ayet 157</div>
+<div class="arabic">ٱلَّذِينَ يَتَّبِعُونَ ٱلرَّسُولَ ٱلنَّبِىَّ ٱلْأُمِّىَّ ٱلَّذِى يَجِدُونَهُۥ مَكْتُوبًا عِندَهُمْ فِى ٱلتَّوْرَىٰةِ وَٱلْإِنجِيلِ يَأْمُرُهُم بِٱلْمَعْرُوفِ وَيَنْهَىٰهُمْ عَنِ ٱلْمُنكَرِ وَيُحِلُّ لَهُمُ ٱلطَّيِّبَٰتِ وَيُحَرِّمُ عَلَيْهِمُ ٱلْخَبَٰٓئِثَ وَيَضَعُ عَنْهُمْ إِصْرَهُمْ وَٱلْأَغْلَٰلَ ٱلَّتِى كَانَتْ عَلَيْهِمْ فَٱلَّذِينَ ءَامَنُوا۟ بِهِۦ وَعَزَّرُوهُ وَنَصَرُوهُ وَٱتَّبَعُوا۟ ٱلنُّورَ ٱلَّذِىٓ أُنزِلَ مَعَهُۥٓ أُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ</div>
+<div class="meal">Onlar ki, yanlarındaki Tevrat ve İncil’de yazılı bulacakları o elçiye, ümmî peygambere uyarlar. O, onlara iyiliği emreder, kötülükten alıkor; temiz şeyleri helâl, pis şeyleri haram kılar; ağır yüklerini ve üzerlerindeki zincirleri kaldırır. İşte ona iman eden, onu destekleyen, yardım eden ve onunla birlikte indirilen nura (Kur’an’a) uyanlar, kurtuluşa erenlerin ta kendileridir.</div>
+</div>
+<div class="ayet-card" id="ayet-158">
+<div class="ayet-num">A‘râf - Ayet 158</div>
+<div class="arabic">قُلْ يَٰٓأَيُّهَا ٱلنَّاسُ إِنِّى رَسُولُ ٱللَّهِ إِلَيْكُمْ جَمِيعًا ٱلَّذِى لَهُۥ مُلْكُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ لَآ إِلَٰهَ إِلَّا هُوَ يُحْىِۦ وَيُمِيتُ فَـَٔامِنُوا۟ بِٱللَّهِ وَرَسُولِهِ ٱلنَّبِىِّ ٱلْأُمِّىِّ ٱلَّذِى يُؤْمِنُ بِٱللَّهِ وَكَلِمَٰتِهِۦ وَٱتَّبِعُوهُ لَعَلَّكُمْ تَهْتَدُونَ</div>
+<div class="meal">De ki: “Ey insanlar! Ben, göklerin ve yerin hükümranlığı kendisine ait olan, kendisinden başka ilah bulunmayan, dirilten ve öldüren Allah’ın hepinize gönderdiği elçisiyim. Öyleyse Allah’a ve O’nun elçisi olan, Allah’a ve O’nun sözlerine iman eden ümmî peygambere iman edin ve ona uyun ki doğru yolu bulasınız.”</div>
+</div>
+<div class="ayet-card" id="ayet-159">
+<div class="ayet-num">A‘râf - Ayet 159</div>
+<div class="arabic">وَمِن قَوْمِ مُوسَىٰٓ أُمَّةٌ يَهْدُونَ بِٱلْحَقِّ وَبِهِۦ يَعْدِلُونَ</div>
+<div class="meal">Mûsâ’nın kavminden, hakka yönelten ve onunla adaletli davranan bir topluluk vardır.</div>
+</div>
+<div class="ayet-card" id="ayet-160">
+<div class="ayet-num">A‘râf - Ayet 160</div>
+<div class="arabic">وَقَطَّعْنَٰهُمُ ٱثْنَتَىْ عَشْرَةَ أَسْبَاطًا أُمَمًا وَأَوْحَيْنَآ إِلَىٰ مُوسَىٰٓ إِذِ ٱسْتَسْقَىٰهُ قَوْمُهُۥٓ أَنِ ٱضْرِب بِّعَصَاكَ ٱلْحَجَرَ فَٱنۢبَجَسَتْ مِنْهُ ٱثْنَتَا عَشْرَةَ عَيْنًا قَدْ عَلِمَ كُلُّ أُنَاسٍ مَّشْرَبَهُمْ وَظَلَّلْنَا عَلَيْهِمُ ٱلْغَمَٰمَ وَأَنزَلْنَا عَلَيْهِمُ ٱلْمَنَّ وَٱلسَّلْوَىٰ كُلُوا۟ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ وَمَا ظَلَمُونَا وَلَٰكِن كَانُوٓا۟ أَنفُسَهُمْ يَظْلِمُونَ</div>
+<div class="meal">Onları on iki boy (kabile) halinde topluluklara ayırdık. Kavmi Mûsâ’dan su istediğinde, “Asanı taşa vur!” diye vahyettik. Derhal taştan on iki pınar fışkırdı, her kabile su içeceği yeri öğrenmişti. Onları bulutla gölgeledik, kudret helvası ve bıldırcın indirdik. “Size rızık olarak verdiğimiz temiz şeylerden yiyin.” (Onlar bize zulmetmedi, fakat) onlar kendilerine zulmediyorlardı.</div>
+</div>
+<div class="page-nav"><a class="nav-btn" href="007_A‘râf_121-140.html"><span class="arrow">←</span> Önceki</a><span class="page-indicator">Sayfa 54 / 340</span><a class="nav-btn" href="007_A‘râf_161-180.html">Sonraki <span class="arrow">→</span></a></div>                            <div class="page-footer">
+        <i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br>
+        <span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;">-ard-</a></span>
+    </div>
+</div>
+</div>
+    
+    
+
+    <!-- Ana Sayfa Butonu - Phosphor Bold -->
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+<!-- Ana Sayfa Butonu -->
+<style>
+.home-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999999;
+    background: #0f4c73 !important;
+    color: #ffffff !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255,255,255,0.12);
+}
+.home-btn svg {
+    width: 28px;
+    height: 28px;
+    transition: all 0.4s ease;
+    color: #ffffff !important;
+}
+.home-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 35px rgba(0,0,0,0.5);
+    background: #0a3552 !important;
+    border-color: rgba(255,255,255,0.25);
+}
+.home-btn:hover svg {
+    transform: rotate(180deg) scale(1.1);
+    color: #ffffff !important;
+}
+.home-btn:active {
+    transform: scale(0.95);
+}
+.home-btn .tooltip {
+    position: absolute;
+    right: 72px;
+    background: rgba(30,30,30,0.95);
+    color: #e0ddd8;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+.home-btn:hover .tooltip {
+    opacity: 1;
+}
+@media (max-width: 650px) {
+    .home-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    .home-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+    .home-btn .tooltip {
+        display: none;
+    }
+}
+</style>
+
+<a href="index.html" class="home-btn" title="Ana Sayfa">
+    <span class="tooltip">⌂ Ana Sayfa</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <circle cx="60" cy="60" r="16" fill="currentColor"/>
+        <circle cx="128" cy="60" r="16" fill="currentColor"/>
+        <circle cx="196" cy="60" r="16" fill="currentColor"/>
+        <circle cx="60" cy="128" r="16" fill="currentColor"/>
+        <circle cx="128" cy="128" r="16" fill="currentColor"/>
+        <circle cx="196" cy="128" r="16" fill="currentColor"/>
+        <circle cx="60" cy="196" r="16" fill="currentColor"/>
+        <circle cx="128" cy="196" r="16" fill="currentColor"/>
+        <circle cx="196" cy="196" r="16" fill="currentColor"/>
+    </svg>
+</a>
+
+
+
+
+
+
+
+
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+<script src="navigation-fixer.js"></script>
+</body>
+</html>

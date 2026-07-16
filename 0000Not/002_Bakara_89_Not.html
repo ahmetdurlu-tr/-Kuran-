@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Bakara 89 - Açıklama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #e0ddd8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-card {
+            background: #0f4c73;
+            color: #fff;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+        .header-card .sure-name-ar {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .header-card .sure-name-tr {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .header-card .sure-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        .content-card {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #3a3d3f;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .arabic-box {
+            font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 1.2rem;
+            padding: 0.5rem 1rem;
+            background: #1f2123;
+            border-radius: 1rem;
+            border-left: 4px solid #0f4c73;
+        }
+        .meal-box {
+            font-size: 1.4rem;
+            color: #d5d2cb;
+            padding: 0.8rem 1rem;
+            background: #1f2123;
+            border-radius: 1rem;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #0f4c73;
+        }
+        .aciklama-baslik {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #d5d2cb;
+            margin: 1.8rem 0 1rem 0;
+            border-bottom: 2px solid #0f4c73;
+            padding-bottom: 0.5rem;
+        }
+        .aciklama-metin {
+            font-size: 1.1rem;
+            color: #d0cec8;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        .ayet-referans {
+            background: #1f2123;
+            border: 1px solid #0f4c73;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            margin: 0.6rem 0;
+            font-size: 1rem;
+            color: #d0cec8;
+        }
+        .ayet-referans .ref-arapca {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 1.4rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 0.5rem;
+        }
+        .ayet-referans .ref-meal {
+            color: #8eb4d9;
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            background: #0f4c73;
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            transition: background 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 2px 8px rgba(122, 134, 110, 0.25);
+        }
+        .back-link:hover {
+            background: #0a3552;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(122, 134, 110, 0.4);
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 650px) {
+            .arabic-box { font-size: 1.4rem; }
+            .meal-box { font-size: 1.2rem; }
+            .header-card .sure-name-ar { font-size: 1.7rem; }
+            .content-card { padding: 1.2rem; }
+        }
+    </style>
+
+
+
+
+
+
+
+
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-card">
+            <div class="sure-name-ar">البقرة</div>
+            <div class="sure-name-tr">Bakara Suresi – 89. Ayet</div>
+            <div class="sure-info">Açıklama | "Tanıyıp Bildikleri Peygamber" Kimdir?</div>
+        </div>
+
+        <div class="content-card">
+            <div class="arabic-box">
+                وَلَمَّا جَآءَهُمْ كِتَٰبٌ مِّنْ عِندِ ٱللَّهِ مُصَدِّقٌ لِّمَا مَعَهُمْ وَكَانُوا۟ مِن قَبْلُ يَسْتَفْتِحُونَ عَلَى ٱلَّذِينَ كَفَرُوا۟ فَلَمَّا جَآءَهُم مَّا عَرَفُوا۟ كَفَرُوا۟ بِهِۦ
+            </div>
+            <div class="meal-box">
+                <strong>Meal (ilgili bölüm):</strong> Onlara, Allah katından ellerindeki Tevrat'ı doğrulayan Kur'an geldi. Oysa onlar, daha önce doğru yolu reddedenlere karşı zafer kazanmak için yardım istiyorlardı. Tanıyıp bildikleri peygamber kendilerine ulaşınca onu reddettiler.
+            </div>
+
+            <div class="aciklama-baslik"> "Tanıyıp Bildikleri Peygamber" Kimdir?</div>
+            <div class="aciklama-metin">
+                Bu ifade, <strong>Hz. Muhammed'i</strong> kastetmektedir. Peki Yahudiler onu nereden tanıyorlardı? Kur'an, bu sorunun cevabını başka ayetlerde verir.
+            </div>
+
+            <div class="aciklama-baslik"> 1. Onu Kendi Çocukları Gibi Tanıyorlardı</div>
+            <div class="ayet-referans">
+                <strong>Bakara 2/146</strong> – Tevrat'taki bilgi sayesinde Peygamber'i tanımaları:
+                <div class="ref-arapca">ٱلَّذِينَ ءَاتَيْنَٰهُمُ ٱلْكِتَٰبَ يَعْرِفُونَهُۥ كَمَا يَعْرِفُونَ أَبْنَآءَهُمْ ۖ وَإِنَّ فَرِيقًا مِّنْهُمْ لَيَكْتُمُونَ ٱلْحَقَّ وَهُمْ يَعْلَمُونَ</div>
+                <div class="ref-meal">"Kendilerine kitap verdiklerimiz, onu (peygamberi) kendi çocuklarını tanıdıkları gibi tanırlar. Buna rağmen içlerinden bir grup, bildikleri halde gerçeği gizler."</div>
+            </div>
+            <div class="aciklama-metin">
+                Bu ayet, Yahudilerin Tevrat'ta geleceği bildirilen peygamberin özelliklerini çok iyi bildiklerini gösterir. Onu tarif ederken hiç tereddüt etmezlerdi; tıpkı kendi çocuklarını tanıdıkları gibi. Ancak yine de bile bile gerçeği gizlediler.
+            </div>
+
+            <div class="aciklama-baslik"> 2. Onun Geleceğini Biliyor ve Zafer Bekliyorlardı</div>
+            <div class="ayet-referans">
+                <strong>Bakara 2/89</strong> – Zafer beklentisi:
+                <div class="ref-arapca">وَكَانُوا۟ مِن قَبْلُ يَسْتَفْتِحُونَ عَلَى ٱلَّذِينَ كَفَرُوا۟</div>
+                <div class="ref-meal">"Oysa onlar, daha önce doğru yolu reddedenlere karşı zafer kazanmak için yardım istiyorlardı."</div>
+            </div>
+            <div class="aciklama-metin">
+                Yahudiler, Medine'deki Arap müşriklerine karşı, gelecek son peygamberi vesile kılarak zafer kazanacaklarını söylüyorlardı. Yani onlar bir kurtarıcı bekliyorlardı. Ancak bu beklenen peygamber, İsrailoğulları'ndan değil de İsmail soyundan çıkınca, sırf kıskançlık ve kibir yüzünden onu reddettiler.
+            </div>
+
+            <div class="aciklama-baslik"> 3. İsa da Onu Müjdelemişti</div>
+            <div class="ayet-referans">
+                <strong>Saff 61/6</strong> – İsa'nın Ahmed'i müjdelemesi:
+                <div class="ref-arapca">وَإِذْ قَالَ عِيسَى ٱبْنُ مَرْيَمَ يَٰبَنِىٓ إِسْرَٰٓءِيلَ إِنِّى رَسُولُ ٱللَّهِ إِلَيْكُم مُّصَدِّقًا لِّمَا بَيْنَ يَدَىَّ مِنَ ٱلتَّوْرَىٰةِ وَمُبَشِّرًۢا بِرَسُولٍ يَأْتِى مِنۢ بَعْدِى ٱسْمُهُۥٓ أَحْمَدُ</div>
+                <div class="ref-meal">"Hani Meryem oğlu İsa, 'Ey İsrailoğulları! Ben, benden önce gelen Tevrat'ı doğrulayıcı ve benden sonra gelecek, adı Ahmed olan bir peygamberi müjdeleyici olarak Allah'ın size gönderdiği bir elçiyim' demişti."</div>
+            </div>
+            <div class="aciklama-metin">
+                İsa peygamber de kendisinden sonra gelecek, adı "Ahmed" (Muhammed) olan bir elçiyi müjdelemiştir. Bu müjde, Tevrat'ta da yer alıyordu. Yahudiler bu bilgilere sahip olmalarına rağmen, beklenen peygamber kendi soylarından gelmediği için onu kıskandılar ve reddettiler.
+            </div>
+
+            <div class="aciklama-baslik"> 4. Tevrat ve İncil'de Yazılı Olan Peygamber</div>
+            <div class="ayet-referans">
+                <strong>A'râf 7/157</strong> – Ümmî peygamberin Tevrat ve İncil'de yazılı oluşu:
+                <div class="ref-arapca">ٱلَّذِينَ يَتَّبِعُونَ ٱلرَّسُولَ ٱلنَّبِىَّ ٱلْأُمِّىَّ ٱلَّذِى يَجِدُونَهُۥ مَكْتُوبًا عِندَهُمْ فِى ٱلتَّوْرَىٰةِ وَٱلْإِنجِيلِ</div>
+                <div class="ref-meal">"Onlar, yanlarındaki Tevrat ve İncil'de yazılı olarak buldukları o ümmî peygambere uyanlardır."</div>
+            </div>
+            <div class="aciklama-metin">
+                Bu ayet, Hz. Muhammed'in özelliklerinin hem Tevrat'ta hem de İncil'de yazılı olduğunu açıkça bildirir. Yahudiler, ellerindeki kitapta yazılı olan bu peygamberi tanıyacak tüm bilgilere sahipti. Ancak kibirleri ve çıkarları, bu bilgiyi kabullenmelerine engel oldu.
+            </div>
+
+            <div class="aciklama-baslik"> Özetle</div>
+            <div class="aciklama-metin">
+                Kur'an, Yahudilerin son peygamberi Tevrat'tan çok iyi tanıdıklarını, onun özelliklerini kendi çocukları gibi bildiklerini, hatta onunla müşriklere karşı zafer kazanacaklarını umduklarını anlatır. Ancak beklenen peygamber İsrailoğulları'ndan değil de Araplardan çıkınca, sırf <strong>kıskançlık ve kibir</strong> yüzünden onu reddettiler. "Tanıyıp bildikleri peygamber" ifadesi, işte bu derin çelişkiyi ve onların bile bile gerçeği örtbas etmelerini vurgular.
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="#" onclick="history.back(); return false;" class="back-link">← Ayet Sayfasına Dön</a>
+            </div>
+        </div>
+
+                                    <div class="page-footer">
+        <i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br>
+        <span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;">-ard-</a></span>
+    </div>
+    </div>
+
+
+
+
+
+
+
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+</body>
+</html>

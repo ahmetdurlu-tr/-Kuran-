@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
+    <title>Özgün Türkçe Meal</title>
+    
+    <!-- Phosphor Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/css/phosphor.css">
+    
+    <style>
+        /* --- İNDEX BAŞLIK KARTI YAZI TİPİ VE BOYUT YÖNETİMİ --- */
+        :root {
+            --kuran-font: 'Segoe UI', sans-serif;
+            --kuran-size: 1.8rem;
+            --ayet-label-font: 'Inter', sans-serif;
+            --ayet-label-size: 0.85rem;
+            --meal-text-font: 'Segoe UI', sans-serif;
+            --meal-text-size: 0.60rem;
+        }
+        .kuran-header-text { font-family: var(--kuran-font); font-size: var(--kuran-size); }
+        .ayet-reference-label { font-family: var(--ayet-label-font); font-size: var(--ayet-label-size); display: block; margin-bottom: 0.1rem; }
+        .meal-content-text { font-family: var(--meal-text-font); font-size: var(--meal-text-size); }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 1.5rem 0.8rem;
+            color: #e0ddd8;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .sure-header {
+            background: #0f4c73;
+            color: white;
+            border-radius: 2rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        .sure-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .sure-header h1 i {
+            font-size: 1.8rem;
+            margin-right: 0.5rem;
+        }
+        .sure-header p {
+            opacity: 0.9;
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+        }
+        .sure-header p i {
+            font-size: 0.9rem;
+            margin: 0 0.2rem;
+        }
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            justify-content: center;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #3a3d3f;
+            color: #9a9c98;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            flex: 0 1 auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .filter-btn i {
+            font-size: 0.8rem;
+        }
+        .filter-btn:hover {
+            border-color: #0f4c73;
+            color: #e0ddd8;
+        }
+        .filter-btn.active {
+            background: #0f4c73;
+            border-color: #0f4c73;
+            color: white;
+        }
+        .filter-btn .count {
+            background: rgba(255,255,255,0.1);
+            padding: 0 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            margin-left: 0.2rem;
+        }
+        .filter-btn.active .count {
+            background: rgba(255,255,255,0.2);
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+            margin-bottom: 1.8rem;
+            background: #26282a;
+            padding: 0.7rem 1rem;
+            border-radius: 1.5rem;
+            border: 1px solid #3a3d3f;
+        }
+        .controls i {
+            font-size: 1.1rem;
+            color: #9a9c98;
+        }
+        .controls input {
+            flex: 2 1 180px;
+            background: #1b1d1f;
+            border: 1px solid #3a3d3f;
+            color: #e0ddd8;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+            min-width: 120px;
+        }
+        .controls input:focus {
+            border-color: #0f4c73;
+        }
+        .controls .sort-buttons {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-left: auto;
+        }
+        .controls .sort-btn {
+            background: transparent;
+            border: 1px solid #3a3d3f;
+            color: #9a9c98;
+            padding: 0.3rem 0.8rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .controls .sort-btn i {
+            font-size: 0.75rem;
+        }
+        .controls .sort-btn:hover {
+            border-color: #0f4c73;
+            color: #e0ddd8;
+        }
+        .controls .sort-btn.active {
+            background: #0f4c73;
+            border-color: #0f4c73;
+            color: white;
+        }
+        /* Sıralama butonlarını daha belirgin yap */
+        .controls .sort-btn {
+            background: #2a2d30;           /* Hafif bir arka plan rengi */
+            border-color: #4a4d50;         /* Daha açık border */
+            color: #c5c2bb;               /* Daha okunaklı metin rengi */
+            padding: 0.4rem 0.8rem;       /* Biraz daha geniş padding */
+            font-weight: 500;
+            border-radius: 2rem;
+            transition: all 0.2s;
+        }
+
+        .controls .sort-btn:hover {
+            background: #1f2a33;           /* Hover'da koyulaşır */
+            border-color: #0f4c73;
+            color: #e0ddd8;
+        }
+
+        .controls .sort-btn.active {
+            background: #0f4c73;
+            border-color: #0f4c73;
+            color: white;
+        }
+
+        /* Eşit genişlik için */
+        .controls .sort-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .controls .sort-buttons .sort-btn {
+            flex: 1 1 0;
+            min-width: 0;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 0 auto 1.2rem;
+        }
+        .okuma-devam {
+            margin: 0;
+            flex: 1 1 auto;
+            text-align: left;
+        }
+        .okuma-devam a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0f4c73;
+            color: white;
+            padding: 0.4rem 1.4rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .okuma-devam a i {
+            font-size: 0.95rem;
+        }
+        .okuma-devam a:hover {
+            background: #0a3552;
+        }
+        .clear-btn-container {
+            flex: 0 0 auto;
+        }
+        .clear-btn-container button {
+            background: #26282a;
+            color: #f0a0a0;
+            border: 1px solid #3a3d3f;
+            padding: 0.4rem 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .clear-btn-container button:hover {
+            background: #322525;
+            border-color: #8a4a4a;
+        }
+        
+        .sure-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .sure-item {
+            background: #26282a;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #3a3d3f;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .sure-item:hover {
+            transform: translateX(4px);
+            background: #2f3235;
+            border-color: #0f4c73;
+        }
+        .sure-item.highlight {
+            border-color: #0f4c73;
+            background: #323a2e;
+            box-shadow: 0 0 0 2px #0f4c7344;
+        }
+        .sure-no {
+            font-weight: 700;
+            color: #0f4c73;
+            min-width: 2.2rem;
+            font-size: 1rem;
+            text-align: right;
+        }
+        .sure-name {
+            flex: 1;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #e0ddd8;
+        }
+        .sure-info {
+            display: grid;
+            grid-template-columns: 85px 75px 55px auto;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #9a9c98;
+            text-align: center;
+        }
+        .sure-info .ayet {
+            background: #3a3d3f;
+            padding: 0.15rem 0.4rem;
+            border-radius: 2rem;
+            color: #c5c2bb;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
+            width: 100%;
+        }
+        .sure-info .ayet i {
+            font-size: 0.7rem;
+        }
+        .sure-info .inis-badge {
+            padding: 0.15rem 0.4rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
+            width: 100%;
+        }
+        .sure-info .inis-badge i {
+            font-size: 0.7rem;
+        }
+        .sure-info .inis-badge.mekki {
+            background: #3a4a3a;
+            color: #a0c0a0;
+        }
+        .sure-info .inis-badge.medeni {
+            background: #4a3a3a;
+            color: #c0a0a0;
+        }
+        .sure-info .nuzul {
+            color: #0f4c73;
+            font-weight: 500;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
+            width: 100%;
+        }
+        .sure-info .nuzul i {
+            font-size: 0.7rem;
+        }
+        .sure-info .son-okunan {
+            background: #0f4c73;
+            color: white;
+            padding: 0.15rem 0.6rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            grid-column: span 4;
+            justify-content: center;
+            margin-top: 0.2rem;
+        }
+        .sure-info .son-okunan i {
+            font-size: 0.7rem;
+        }
+        .sure-item.has-pages {
+            cursor: pointer;
+        }
+        .accordion-icon {
+            font-size: 0.85rem !important;
+            color: #0f4c73;
+            margin-left: auto;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+        .sure-item.expanded .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .sure-pages {
+            display: none;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            background: #202224;
+            border: 1px solid #3a3d3f;
+            border-top: none;
+            border-radius: 0 0 1rem 1rem;
+            padding: 0.7rem 1.2rem 0.9rem;
+            margin-top: -0.6rem;
+            margin-bottom: 0.6rem;
+        }
+        .sure-pages.expanded {
+            display: flex;
+        }
+        .sure-pages .page-link {
+            background: #2f3235;
+            border: 1px solid #3a3d3f;
+            color: #c5c2bb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1.5rem;
+            font-size: 0.75rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .sure-pages .page-link i {
+            font-size: 0.7rem;
+        }
+        .sure-pages .page-link:hover {
+            background: #0f4c73;
+            border-color: #0f4c73;
+            color: white;
+        }
+        .sure-pages .page-link.page-read {
+            background: #3a4a3a;
+            border-color: #0f4c73;
+            color: #c8e0c0;
+            font-weight: 600;
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.2rem;
+        }
+        .page-footer i {
+            font-size: 0.75rem;
+            margin: 0 0.2rem;
+        }
+        .error-msg {
+            color: #f0a0a0;
+            background: #2a1a1a;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid #8a4a4a;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 650px) {
+            .sure-item { padding: 0.7rem 1rem; gap: 0.8rem; }
+            .sure-no { min-width: 1.8rem; font-size: 0.9rem; }
+            .sure-name { font-size: 0.95rem; }
+            .sure-info { grid-template-columns: 75px 65px 45px auto; gap: 0.3rem; font-size: 0.7rem; }
+            .controls { padding: 0.6rem 0.8rem; gap: 0.4rem; }
+            .controls input { font-size: 0.8rem; padding: 0.4rem 0.8rem; min-width: 100px; }
+            .controls .sort-btn { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
+            .filter-btn { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+            .sure-header h1 { font-size: 1.5rem; }
+            .sure-header p { font-size: 0.8rem; }
+            .action-bar { justify-content: space-between; }
+        }
+        @media (max-width: 480px) {
+            .sure-info { grid-template-columns: 68px 58px 40px auto; font-size: 0.65rem; }
+        }
+        @media (max-width: 400px) {
+            .controls .sort-buttons { margin-left: 0; width: 100%; justify-content: center; }
+            .controls input { width: 100%; }
+        }
+    
+        /* MOBİL DÜZELTMELER */
+        @media (max-width: 650px) {
+            .page-nav .nav-btn { padding: 0.3rem 0.6rem !important; font-size: 0.7rem !important; min-width: 60px !important; white-space: nowrap !important; }
+        }
+        @media (max-width: 480px) {
+            .page-nav { gap: 0.3rem !important; flex-wrap: wrap !important; justify-content: center !important; }
+            .page-nav .nav-btn { padding: 0.2rem 0.5rem !important; font-size: 0.65rem !important; min-width: 50px !important; }
+            .page-nav .page-indicator { font-size: 0.6rem !important; padding: 0.1rem 0.4rem !important; width: 100% !important; text-align: center !important; }
+        }
+
+        .filter-btn.active[data-filter="all"] { background: #0f4c73 !important; border-color: #0f4c73 !important; color: white !important; }
+        .filter-btn.active[data-filter="Mekkî"] { background: #2d6a4f !important; border-color: #2d6a4f !important; color: white !important; }
+        .filter-btn.active[data-filter="Medenî"] { background: #6a2d2d !important; border-color: #6a2d2d !important; color: white !important; }
+    </style>
+
+    <style id="ozgunMealTrackerCSS">
+        body, html, :root { background: #0f141a !important; background-color: #0f141a !important; }
+        .sure-header, .header-card { background: #0f4c73 !important; background-color: #0f4c73 !important; box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; border: none !important; }
+        .ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card { background: #263242 !important; border-color: #344459 !important; }
+        .arabic-box, .meal-box, .ayet-referans { background: #1a222b !important; border-color: #344459 !important; }
+        .aciklama-baslik { border-bottom-color: #0f4c73 !important; }
+        .back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { background: #0f4c73 !important; background-color: #0f4c73 !important; color: #ffffff !important; background-image: none !important; box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; }
+        .back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { background: #0a3552 !important; background-color: #0a3552 !important; background-image: none !important; box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important; }
+        .ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { background: #1a222b !important; border-color: #232d3a !important; }
+        .ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { background: #0f141a !important; color: #8eb4d9 !important; border-color: #0f141a !important; }
+        .sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif { border-color: #8eb4d9 !important; box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important; }
+        .page-footer { border-top-color: #344459 !important; }
+        .filter-btn.active[data-filter="all"] { background: #0f4c73 !important; border-color: #0f4c73 !important; color: white !important; }
+        .filter-btn.active[data-filter="Mekkî"] { background: #2d6a4f !important; border-color: #2d6a4f !important; color: white !important; }
+        .filter-btn.active[data-filter="Medenî"] { background: #6a2d2d !important; border-color: #6a2d2d !important; color: white !important; }
+    </style>
+
+    <style id="ozgunMealMobileFixCSS">
+        @media (max-width: 480px) {
+            .filter-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+            .filter-btn { padding: 0.35rem 0.3rem; font-size: 0.68rem; gap: 0.2rem; white-space: nowrap; overflow: hidden; justify-content: center; }
+            .filter-btn .count { margin-left: 0.1rem; padding: 0 0.35rem; }
+            .controls { flex-direction: column; align-items: stretch; }
+            .controls input { flex: 1 1 auto; width: 100%; }
+            .controls .sort-buttons { margin-left: 0; width: 100%; justify-content: center; }
+            .action-bar { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+            .okuma-devam, .clear-btn-container { width: 100%; flex: 1 1 auto; }
+            .okuma-devam a { width: 100%; justify-content: center; text-align: center; }
+            .clear-btn-container button { width: 100%; justify-content: center; }
+        }
+        .filter-btn.active[data-filter="all"] { background: #0f4c73 !important; border-color: #0f4c73 !important; color: white !important; }
+        .filter-btn.active[data-filter="Mekkî"] { background: #2d6a4f !important; border-color: #2d6a4f !important; color: white !important; }
+        .filter-btn.active[data-filter="Medenî"] { background: #6a2d2d !important; border-color: #6a2d2d !important; color: white !important; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sure-header">
+        <h1 class="kuran-header-text"><i class="ph ph-book-open-bold"></i>KUR'AN</h1>
+        <p>
+            <span class="ayet-reference-label">
+                <i class="ph ph-moon-bold"></i> İçinde hiçbir şüphe olmayan bu Kitap, sorumluluk bilinci taşıyanlar için bir yol göstericidir.<i class="ph ph-sun-bold"></i>
+            </span>
+            <span class="meal-content-text">
+               ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ Bakara 2.Ayet 
+            </span>
+        </p>
+    </div>
+
+    <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all"><i class="ph ph-list-bold"></i> Tüm Sureler <span class="count">114</span></button>
+        <button class="filter-btn" data-filter="Mekkî"><i class="ph ph-moon-bold"></i> Mekkî <span class="count">0</span></button>
+        <button class="filter-btn" data-filter="Medenî"><i class="ph ph-sun-bold"></i> Medenî <span class="count">0</span></button>
+    </div>
+
+    <div class="controls">
+        <i class="ph ph-magnifying-glass-bold"></i>
+        <input type="text" id="searchInput" placeholder="Sure adı veya numarası ara..." />
+        <div class="sort-buttons">
+            <button class="sort-btn active" data-sort="mushaf"><i class="ph ph-list-numbers-bold"></i> Kur'an Sırası </button>
+            <button class="sort-btn" data-sort="inis"><i class="ph ph-clock-bold"></i> İniş Sırası </button>
+            <button class="sort-btn" data-sort="alfabetik"><i class="ph ph-sort-alpha-up-bold"></i> Alfabetik</button>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <div id="devamContainer" class="okuma-devam" style="display:none;">
+            <a id="devamLink" href="#"><i class="ph ph-arrow-right-bold"></i> Okumaya Devam Et</a>
+        </div>
+        <div class="clear-btn-container">
+            <button id="clearTracksBtn">
+                <i class="ph ph-trash-bold"></i> Geçmişi Sıfırla
+            </button>
+        </div>
+    </div>
+
+    <div id="sureList" class="sure-list"></div>
+
+    <div class="page-footer">
+        <i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br>
+        <span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;">-ard-</a></span>
+    </div>
+</div>
+
+<script>
+const sureler = [
+    {"no":1, "ad":"Fâtiha", "ayet":7, "inis":"Mekkî", "inis_sira":1, "dosya":"001_Fatiha_1-7.html", "dosyalar": ["001_Fatiha_1-7.html"]},
+    {"no":2, "ad":"Bakara", "ayet":286, "inis":"Medenî", "inis_sira":94, "dosya":"002_Bakara_1-20.html", "dosyalar": ["002_Bakara_1-20.html","002_Bakara_101-120.html","002_Bakara_121-140.html","002_Bakara_141-160.html","002_Bakara_161-180.html","002_Bakara_181-200.html","002_Bakara_201-220.html","002_Bakara_21-40.html","002_Bakara_221-240.html","002_Bakara_241-260.html","002_Bakara_261-280.html","002_Bakara_281-286.html","002_Bakara_41-60.html","002_Bakara_61-80.html","002_Bakara_81-100.html"]},
+    {"no":3, "ad":"Âl-i İmrân", "ayet":200, "inis":"Medenî", "inis_sira":98, "dosya":"003_Âl-i_İmrân_1-20.html", "dosyalar": ["003_Âl-i_İmrân_1-20.html","003_Âl-i_İmrân_101-120.html","003_Âl-i_İmrân_121-140.html","003_Âl-i_İmrân_141-160.html","003_Âl-i_İmrân_161-180.html","003_Âl-i_İmrân_181-200.html","003_Âl-i_İmrân_21-40.html","003_Âl-i_İmrân_41-60.html","003_Âl-i_İmrân_61-80.html","003_Âl-i_İmrân_81-100.html"]},
+    {"no":4, "ad":"Nisâ", "ayet":176, "inis":"Medenî", "inis_sira":106, "dosya":"004_Nisâ_1-20.html", "dosyalar": ["004_Nisâ_1-20.html","004_Nisâ_101-120.html","004_Nisâ_121-140.html","004_Nisâ_141-160.html","004_Nisâ_161-176.html","004_Nisâ_21-40.html","004_Nisâ_41-60.html","004_Nisâ_61-80.html","004_Nisâ_81-100.html"]},
+    {"no":5, "ad":"Mâide", "ayet":120, "inis":"Medenî", "inis_sira":108, "dosya":"005_Mâide_1-20.html", "dosyalar": ["005_Mâide_1-20.html","005_Mâide_101-120.html","005_Mâide_21-40.html","005_Mâide_41-60.html","005_Mâide_61-80.html","005_Mâide_81-100.html"]},
+    {"no":6, "ad":"En‘âm", "ayet":165, "inis":"Mekkî", "inis_sira":73, "dosya":"006_En‘âm_1-20.html", "dosyalar": ["006_En‘âm_1-20.html","006_En‘âm_101-120.html","006_En‘âm_121-140.html","006_En‘âm_141-160.html","006_En‘âm_161-165.html","006_En‘âm_21-40.html","006_En‘âm_41-60.html","006_En‘âm_61-80.html","006_En‘âm_81-100.html"]},
+    {"no":7, "ad":"A‘râf", "ayet":206, "inis":"Mekkî", "inis_sira":56, "dosya":"007_A‘râf_1-20.html", "dosyalar": ["007_A‘râf_1-20.html","007_A‘râf_101-120.html","007_A‘râf_121-140.html","007_A‘râf_141-160.html","007_A‘râf_161-180.html","007_A‘râf_181-206.html","007_A‘râf_21-40.html","007_A‘râf_41-60.html","007_A‘râf_61-80.html","007_A‘râf_81-100.html"]},
+    {"no":8, "ad":"Enfâl", "ayet":75, "inis":"Medenî", "inis_sira":95, "dosya":"008_Enfâl_1-20.html", "dosyalar": ["008_Enfâl_1-20.html","008_Enfâl_21-40.html","008_Enfâl_41-60.html","008_Enfâl_61-75.html"]},
+    {"no":9, "ad":"Tevbe", "ayet":129, "inis":"Medenî", "inis_sira":114, "dosya":"009_Tevbe_1-20.html", "dosyalar": ["009_Tevbe_1-20.html","009_Tevbe_101-120.html","009_Tevbe_121-129.html","009_Tevbe_21-40.html","009_Tevbe_41-60.html","009_Tevbe_61-80.html","009_Tevbe_81-100.html"]},
+    {"no":10, "ad":"Yûnus", "ayet":109, "inis":"Mekkî", "inis_sira":70, "dosya":"010_Yunus_1-20.html", "dosyalar": ["010_Yunus_1-20.html","010_Yunus_101-109.html","010_Yunus_21-40.html","010_Yunus_41-60.html","010_Yunus_61-80.html","010_Yunus_81-100.html"]},
+    {"no":11, "ad":"Hûd", "ayet":123, "inis":"Mekkî", "inis_sira":69, "dosya":"011_Hûd_1-20.html", "dosyalar": ["011_Hûd_1-20.html","011_Hûd_101-120.html","011_Hûd_121-123.html","011_Hûd_21-40.html","011_Hûd_41-60.html","011_Hûd_61-80.html","011_Hûd_81-100.html"]},
+    {"no":12, "ad":"Yûsuf", "ayet":111, "inis":"Mekkî", "inis_sira":71, "dosya":"012_Yûsuf_1-20.html", "dosyalar": ["012_Yûsuf_1-20.html","012_Yûsuf_101-111.html","012_Yûsuf_21-40.html","012_Yûsuf_41-60.html","012_Yûsuf_61-80.html","012_Yûsuf_81-100.html"]},
+    {"no":13, "ad":"Ra'd", "ayet":43, "inis":"Medenî", "inis_sira":58, "dosya":"013_Ra'd_1-20.html", "dosyalar": ["013_Ra'd_1-20.html","013_Ra'd_21-40.html","013_Ra'd_41-43.html"]},
+    {"no":14, "ad":"İbrâhîm", "ayet":52, "inis":"Mekkî", "inis_sira":65, "dosya":"014_İbrâhîm_1-20.html", "dosyalar": ["014_İbrâhîm_1-20.html","014_İbrâhîm_21-40.html","014_İbrâhîm_41-52.html"]},
+    {"no":15, "ad":"Hicr", "ayet":99, "inis":"Mekkî", "inis_sira":72, "dosya":"015_Hicr_1-20.html", "dosyalar": ["015_Hicr_1-20.html","015_Hicr_21-40.html","015_Hicr_41-60.html","015_Hicr_61-80.html","015_Hicr_81-99.html"]},
+    {"no":16, "ad":"Nahl", "ayet":128, "inis":"Mekkî", "inis_sira":74, "dosya":"016_Nahl_1-20.html", "dosyalar": ["016_Nahl_1-20.html","016_Nahl_101-128.html","016_Nahl_21-40.html","016_Nahl_41-60.html","016_Nahl_61-80.html","016_Nahl_81-100.html"]},
+    {"no":17, "ad":"İsrâ", "ayet":111, "inis":"Mekkî", "inis_sira":68, "dosya":"017_İsrâ_1-20.html", "dosyalar": ["017_İsrâ_1-20.html","017_İsrâ_101-111.html","017_İsrâ_21-40.html","017_İsrâ_41-60.html","017_İsrâ_61-80.html","017_İsrâ_81-100.html"]},
+    {"no":18, "ad":"Kehf", "ayet":110, "inis":"Mekkî", "inis_sira":62, "dosya":"018_Kehf_1-20.html", "dosyalar": ["018_Kehf_1-20.html","018_Kehf_101-110.html","018_Kehf_21-40.html","018_Kehf_41-60.html","018_Kehf_61-80.html","018_Kehf_81-100.html"]},
+    {"no":19, "ad":"Meryem", "ayet":98, "inis":"Mekkî", "inis_sira":43, "dosya":"019_Meryem_1-20.html", "dosyalar": ["019_Meryem_1-20.html","019_Meryem_21-40.html","019_Meryem_41-60.html","019_Meryem_61-80.html","019_Meryem_81-98.html"]},
+    {"no":20, "ad":"Tâ-Hâ", "ayet":135, "inis":"Mekkî", "inis_sira":44, "dosya":"020_Taha_1-20.html", "dosyalar": ["020_Taha_1-20.html","020_Taha_101-120.html","020_Taha_121-135.html","020_Taha_21-40.html","020_Taha_41-60.html","020_Taha_61-80.html","020_Taha_81-100.html"]},
+    {"no":21, "ad":"Enbiyâ", "ayet":112, "inis":"Mekkî", "inis_sira":79, "dosya":"021_Enbiya_1-20.html", "dosyalar": ["021_Enbiya_1-20.html","021_Enbiya_101-112.html","021_Enbiya_21-40.html","021_Enbiya_41-60.html","021_Enbiya_61-80.html","021_Enbiya_81-100.html"]},
+    {"no":22, "ad":"Hac", "ayet":78, "inis":"Medenî", "inis_sira":91, "dosya":"022_Hac_1-20.html", "dosyalar": ["022_Hac_1-20.html","022_Hac_21-40.html","022_Hac_41-60.html","022_Hac_61-78.html"]},
+    {"no":23, "ad":"Mü'minûn", "ayet":118, "inis":"Mekkî", "inis_sira":80, "dosya":"023_Müminun_1-20.html", "dosyalar": ["023_Müminun_1-20.html","023_Müminun_101-118.html","023_Müminun_21-40.html","023_Müminun_41-60.html","023_Müminun_61-80.html","023_Müminun_81-100.html"]},
+    {"no":24, "ad":"Nûr", "ayet":64, "inis":"Medenî", "inis_sira":97, "dosya":"024_Nur_1-20.html", "dosyalar": ["024_Nur_1-20.html","024_Nur_21-40.html","024_Nur_41-60.html","024_Nur_61-64.html"]},
+    {"no":25, "ad":"Furkân", "ayet":77, "inis":"Mekkî", "inis_sira":40, "dosya":"025_Furkan_1-20.html", "dosyalar": ["025_Furkan_1-20.html","025_Furkan_21-40.html","025_Furkan_41-60.html","025_Furkan_61-77.html"]},
+    {"no":26, "ad":"Şu‘arâ", "ayet":227, "inis":"Mekkî", "inis_sira":51, "dosya":"026_Şu'arâ_1-20.html", "dosyalar": ["026_Şu'arâ_1-20.html","026_Şu'arâ_101-120.html","026_Şu'arâ_121-140.html","026_Şu'arâ_141-160.html","026_Şu'arâ_161-180.html","026_Şu'arâ_181-200.html","026_Şu'arâ_201-220.html","026_Şu'arâ_21-40.html","026_Şu'arâ_221-227.html","026_Şu'arâ_41-60.html","026_Şu'arâ_61-80.html","026_Şu'arâ_81-100.html"]},
+    {"no":27, "ad":"Neml", "ayet":93, "inis":"Mekkî", "inis_sira":53, "dosya":"027_Neml_1-20.html", "dosyalar": ["027_Neml_1-20.html","027_Neml_21-40.html","027_Neml_41-60.html","027_Neml_61-80.html","027_Neml_81-93.html"]},
+    {"no":28, "ad":"Kasas", "ayet":88, "inis":"Mekkî", "inis_sira":67, "dosya":"028_Kasas_1-20.html", "dosyalar": ["028_Kasas_1-20.html","028_Kasas_21-40.html","028_Kasas_41-60.html","028_Kasas_61-80.html","028_Kasas_81-88.html"]},
+    {"no":29, "ad":"Ankebût", "ayet":69, "inis":"Mekkî", "inis_sira":89, "dosya":"029_Ankebût_1-20.html", "dosyalar": ["029_Ankebût_1-20.html","029_Ankebût_21-40.html","029_Ankebût_41-60.html","029_Ankebût_61-69.html"]},
+    {"no":30, "ad":"Rûm", "ayet":60, "inis":"Mekkî", "inis_sira":88, "dosya":"030_Rûm_1-20.html", "dosyalar": ["030_Rûm_1-20.html","030_Rûm_21-40.html","030_Rûm_41-60.html"]},
+    {"no":31, "ad":"Lokmân", "ayet":34, "inis":"Mekkî", "inis_sira":75, "dosya":"031_Lokmân_1-20.html", "dosyalar": ["031_Lokmân_1-20.html","031_Lokmân_21-34.html"]},
+    {"no":32, "ad":"Secde", "ayet":30, "inis":"Mekkî", "inis_sira":57, "dosya":"032_Secde_1-20.html", "dosyalar": ["032_Secde_1-20.html","032_Secde_21-30.html"]},
+    {"no":33, "ad":"Ahzâb", "ayet":73, "inis":"Medenî", "inis_sira":105, "dosya":"033_Ahzâb_1-20.html", "dosyalar": ["033_Ahzâb_1-20.html","033_Ahzâb_21-40.html","033_Ahzâb_41-60.html","033_Ahzâb_61-73.html"]},
+    {"no":34, "ad":"Sebe’", "ayet":54, "inis":"Mekkî", "inis_sira":76, "dosya":"034_Sebe'_1-20.html", "dosyalar": ["034_Sebe'_1-20.html","034_Sebe'_21-40.html","034_Sebe'_41-54.html"]},
+    {"no":35, "ad":"Fâtır", "ayet":45, "inis":"Mekkî", "inis_sira":42, "dosya":"035_Fâtır_1-20.html", "dosyalar": ["035_Fâtır_1-20.html","035_Fâtır_21-45.html"]},
+    {"no":36, "ad":"Yâsîn", "ayet":83, "inis":"Mekkî", "inis_sira":39, "dosya":"036_Yâsîn_1-20.html", "dosyalar": ["036_Yâsîn_1-20.html","036_Yâsîn_21-40.html","036_Yâsîn_41-60.html","036_Yâsîn_61-83.html"]},
+    {"no":37, "ad":"Sâffât", "ayet":182, "inis":"Mekkî", "inis_sira":66, "dosya":"037_Saffat_1-20.html", "dosyalar": ["037_Saffat_1-20.html","037_Saffat_101-120.html","037_Saffat_121-140.html","037_Saffat_141-160.html","037_Saffat_161-182.html","037_Saffat_21-40.html","037_Saffat_41-60.html","037_Saffat_61-80.html","037_Saffat_81-100.html"]},
+    {"no":38, "ad":"Sâd", "ayet":88, "inis":"Mekkî", "inis_sira":55, "dosya":"038_Sad_1-20.html", "dosyalar": ["038_Sad_1-20.html","038_Sad_21-40.html","038_Sad_41-60.html","038_Sad_61-88.html"]},
+    {"no":39, "ad":"Zümer", "ayet":75, "inis":"Mekkî", "inis_sira":77, "dosya":"039_Zümer_1-20.html", "dosyalar": ["039_Zümer_1-20.html","039_Zümer_21-40.html","039_Zümer_41-60.html","039_Zümer_61-75.html"]},
+    {"no":40, "ad":"Mü’min", "ayet":85, "inis":"Mekkî", "inis_sira":78, "dosya":"040_Mü'min_1-20.html", "dosyalar": ["040_Mü'min_1-20.html","040_Mü'min_21-40.html","040_Mü'min_41-60.html","040_Mü'min_61-85.html"]},
+    {"no":41, "ad":"Fussilet", "ayet":54, "inis":"Mekkî", "inis_sira":81, "dosya":"041_Fussilet_1-20.html", "dosyalar": ["041_Fussilet_1-20.html","041_Fussilet_21-40.html","041_Fussilet_41-54.html"]},
+    {"no":42, "ad":"Şûrâ", "ayet":53, "inis":"Mekkî", "inis_sira":82, "dosya":"042_Şûrâ_1-20.html", "dosyalar": ["042_Şûrâ_1-20.html","042_Şûrâ_21-40.html","042_Şûrâ_41-53.html"]},
+    {"no":43, "ad":"Zuhruf", "ayet":89, "inis":"Mekkî", "inis_sira":83, "dosya":"043_Zuhruf_1-20.html", "dosyalar": ["043_Zuhruf_1-20.html","043_Zuhruf_21-40.html","043_Zuhruf_41-60.html","043_Zuhruf_61-89.html"]},
+    {"no":44, "ad":"Duhân", "ayet":59, "inis":"Mekkî", "inis_sira":84, "dosya":"044_Duhan_1-20.html", "dosyalar": ["044_Duhan_1-20.html","044_Duhan_21-40.html","044_Duhan_41-59.html"]},
+    {"no":45, "ad":"Câsiye", "ayet":37, "inis":"Mekkî", "inis_sira":85, "dosya":"045_Casiye_1-20.html", "dosyalar": ["045_Casiye_1-20.html","045_Casiye_21-37.html"]},
+    {"no":46, "ad":"Ahkâf", "ayet":35, "inis":"Mekkî", "inis_sira":86, "dosya":"046_Ahkaf_1-20.html", "dosyalar": ["046_Ahkaf_1-20.html","046_Ahkaf_21-35.html"]},
+    {"no":47, "ad":"Muhammed", "ayet":38, "inis":"Medenî", "inis_sira":92, "dosya":"047_Muhammed_1-20.html", "dosyalar": ["047_Muhammed_1-20.html","047_Muhammed_21-38.html"]},
+    {"no":48, "ad":"Fetih", "ayet":29, "inis":"Medenî", "inis_sira":110, "dosya":"048_Fetih_1-20.html", "dosyalar": ["048_Fetih_1-20.html","048_Fetih_21-29.html"]},
+    {"no":49, "ad":"Hucurât", "ayet":18, "inis":"Medenî", "inis_sira":112, "dosya":"049_Hucurat_1-18.html", "dosyalar": ["049_Hucurat_1-18.html"]},
+    {"no":50, "ad":"Kâf", "ayet":45, "inis":"Mekkî", "inis_sira":36, "dosya":"050_Kaf_1-20.html", "dosyalar": ["050_Kaf_1-20.html","050_Kaf_21-45.html"]},
+    {"no":51, "ad":"Zâriyât", "ayet":60, "inis":"Mekkî", "inis_sira":87, "dosya":"051_Zariyat_1-20.html", "dosyalar": ["051_Zariyat_1-20.html","051_Zariyat_21-40.html","051_Zariyat_41-60.html"]},
+    {"no":52, "ad":"Tûr", "ayet":49, "inis":"Mekkî", "inis_sira":59, "dosya":"052_Tur_1-20.html", "dosyalar": ["052_Tur_1-20.html","052_Tur_21-40.html","052_Tur_41-49.html"]},
+    {"no":53, "ad":"Necm", "ayet":62, "inis":"Mekkî", "inis_sira":26, "dosya":"053_Necm_1-20.html", "dosyalar": ["053_Necm_1-20.html","053_Necm_21-40.html","053_Necm_41-62.html"]},
+    {"no":54, "ad":"Kamer", "ayet":55, "inis":"Mekkî", "inis_sira":54, "dosya":"054_Kamer_1-20.html", "dosyalar": ["054_Kamer_1-20.html","054_Kamer_21-40.html","054_Kamer_41-55.html"]},
+    {"no":55, "ad":"Rahmân", "ayet":78, "inis":"Mekkî", "inis_sira":41, "dosya":"055_Rahman_1-20.html", "dosyalar": ["055_Rahman_1-20.html","055_Rahman_21-40.html","055_Rahman_41-60.html","055_Rahman_61-78.html"]},
+    {"no":56, "ad":"Vâkıa", "ayet":96, "inis":"Mekkî", "inis_sira":50, "dosya":"056_Vakıa_1-20.html", "dosyalar": ["056_Vakıa_1-20.html","056_Vakıa_21-40.html","056_Vakıa_41-60.html","056_Vakıa_61-80.html","056_Vakıa_81-96.html"]},
+    {"no":57, "ad":"Hadîd", "ayet":29, "inis":"Medenî", "inis_sira":96, "dosya":"057_Hadid_1-20.html", "dosyalar": ["057_Hadid_1-20.html","057_Hadid_21-29.html"]},
+    {"no":58, "ad":"Mücâdele", "ayet":22, "inis":"Medenî", "inis_sira":104, "dosya":"058_Mücadele_1-22.html", "dosyalar": ["058_Mücadele_1-22.html"]},
+    {"no":59, "ad":"Haşr", "ayet":24, "inis":"Medenî", "inis_sira":102, "dosya":"059_Haşr_1-24.html", "dosyalar": ["059_Haşr_1-24.html"]},
+    {"no":60, "ad":"Mümtehine", "ayet":13, "inis":"Medenî", "inis_sira":109, "dosya":"060_Mümtehine_1-13.html", "dosyalar": ["060_Mümtehine_1-13.html"]},
+    {"no":61, "ad":"Saff", "ayet":14, "inis":"Medenî", "inis_sira":99, "dosya":"061_Saff_1-14.html", "dosyalar": ["061_Saff_1-14.html"]},
+    {"no":62, "ad":"Cuma", "ayet":11, "inis":"Medenî", "inis_sira":100, "dosya":"062_Cuma_1-11.html", "dosyalar": ["062_Cuma_1-11.html"]},
+    {"no":63, "ad":"Münâfikûn", "ayet":11, "inis":"Medenî", "inis_sira":103, "dosya":"063_Münafikun_1-11.html", "dosyalar": ["063_Münafikun_1-11.html"]},
+    {"no":64, "ad":"Teğâbun", "ayet":18, "inis":"Medenî", "inis_sira":93, "dosya":"064_Teğabun_1-18.html", "dosyalar": ["064_Teğabun_1-18.html"]},
+    {"no":65, "ad":"Talâk", "ayet":12, "inis":"Medenî", "inis_sira":107, "dosya":"065_Talak_1-12.html", "dosyalar": ["065_Talak_1-12.html"]},
+    {"no":66, "ad":"Tahrîm", "ayet":12, "inis":"Medenî", "inis_sira":113, "dosya":"066_Tahrim_1-12.html", "dosyalar": ["066_Tahrim_1-12.html"]},
+    {"no":67, "ad":"Mülk", "ayet":30, "inis":"Mekkî", "inis_sira":60, "dosya":"067_Mülk_1-20.html", "dosyalar": ["067_Mülk_1-20.html","067_Mülk_21-30.html"]},
+    {"no":68, "ad":"Kalem", "ayet":52, "inis":"Mekkî", "inis_sira":7, "dosya":"068_Kalem_1-20.html", "dosyalar": ["068_Kalem_1-20.html","068_Kalem_21-40.html","068_Kalem_41-52.html"]},
+    {"no":69, "ad":"Hâkka", "ayet":52, "inis":"Mekkî", "inis_sira":45, "dosya":"069_Hakka_1-20.html", "dosyalar": ["069_Hakka_1-20.html","069_Hakka_21-40.html","069_Hakka_41-52.html"]},
+    {"no":70, "ad":"Me‘âric", "ayet":44, "inis":"Mekkî", "inis_sira":46, "dosya":"070_Me'aric_1-20.html", "dosyalar": ["070_Me'aric_1-20.html","070_Me'aric_21-44.html"]},
+    {"no":71, "ad":"Nûh", "ayet":28, "inis":"Mekkî", "inis_sira":64, "dosya":"071_Nuh_1-28.html", "dosyalar": ["071_Nuh_1-28.html"]},
+    {"no":72, "ad":"Cin", "ayet":28, "inis":"Mekkî", "inis_sira":63, "dosya":"072_Cin_1-28.html", "dosyalar": ["072_Cin_1-28.html"]},
+    {"no":73, "ad":"Müzzemmil", "ayet":20, "inis":"Mekkî", "inis_sira":3, "dosya":"073_Müzzemmil_1-20.html", "dosyalar": ["073_Müzzemmil_1-20.html"]},
+    {"no":74, "ad":"Müddessir", "ayet":56, "inis":"Mekkî", "inis_sira":4, "dosya":"074_Müddessir_1-20.html", "dosyalar": ["074_Müddessir_1-20.html","074_Müddessir_21-40.html","074_Müddessir_41-56.html"]},
+    {"no":75, "ad":"Kıyâme", "ayet":40, "inis":"Mekkî", "inis_sira":33, "dosya":"075_Kıyamet_1-20.html", "dosyalar": ["075_Kıyamet_1-20.html","075_Kıyamet_21-40.html"]},
+    {"no":76, "ad":"İnsân", "ayet":31, "inis":"Medenî", "inis_sira":32, "dosya":"076_İnsan_1-20.html", "dosyalar": ["076_İnsan_1-20.html","076_İnsan_21-31.html"]},
+    {"no":77, "ad":"Mürselât", "ayet":50, "inis":"Mekkî", "inis_sira":35, "dosya":"077_Mürselat_1-20.html", "dosyalar": ["077_Mürselat_1-20.html","077_Mürselat_21-40.html","077_Mürselat_41-50.html"]},
+    {"no":78, "ad":"Nebe’", "ayet":40, "inis":"Mekkî", "inis_sira":47, "dosya":"078_Nebe_1-20.html", "dosyalar": ["078_Nebe_1-20.html","078_Nebe_21-40.html"]},
+    {"no":79, "ad":"Nâziât", "ayet":46, "inis":"Mekkî", "inis_sira":48, "dosya":"079_Naziat_1-20.html", "dosyalar": ["079_Naziat_1-20.html","079_Naziat_21-46.html"]},
+    {"no":80, "ad":"Abese", "ayet":42, "inis":"Mekkî", "inis_sira":27, "dosya":"080_Abese_1-20.html", "dosyalar": ["080_Abese_1-20.html","080_Abese_21-42.html"]},
+    {"no":81, "ad":"Tekvîr", "ayet":29, "inis":"Mekkî", "inis_sira":8, "dosya":"081_Tekvir_1-29.html", "dosyalar": ["081_Tekvir_1-29.html"]},
+    {"no":82, "ad":"İnfitâr", "ayet":19, "inis":"Mekkî", "inis_sira":49, "dosya":"082_İnfitar_1-19.html", "dosyalar": ["082_İnfitar_1-19.html"]},
+    {"no":83, "ad":"Mutaffifîn", "ayet":36, "inis":"Mekkî", "inis_sira":90, "dosya":"083_Mutaffifin_1-20.html", "dosyalar": ["083_Mutaffifin_1-20.html","083_Mutaffifin_21-36.html"]},
+    {"no":84, "ad":"İnşikâk", "ayet":25, "inis":"Mekkî", "inis_sira":52, "dosya":"084_İnşikak_1-25.html", "dosyalar": ["084_İnşikak_1-25.html"]},
+    {"no":85, "ad":"Bürûc", "ayet":22, "inis":"Mekkî", "inis_sira":29, "dosya":"085_Büruc_1-22.html", "dosyalar": ["085_Büruc_1-22.html"]},
+    {"no":86, "ad":"Târık", "ayet":17, "inis":"Mekkî", "inis_sira":38, "dosya":"086_Tarık_1-17.html", "dosyalar": ["086_Tarık_1-17.html"]},
+    {"no":87, "ad":"A‘lâ", "ayet":19, "inis":"Mekkî", "inis_sira":9, "dosya":"087_A'la_1-19.html", "dosyalar": ["087_A'la_1-19.html"]},
+    {"no":88, "ad":"Gâşiye", "ayet":26, "inis":"Mekkî", "inis_sira":61, "dosya":"088_Gaşiye_1-26.html", "dosyalar": ["088_Gaşiye_1-26.html"]},
+    {"no":89, "ad":"Fecr", "ayet":30, "inis":"Mekkî", "inis_sira":11, "dosya":"089_Fecr_1-30.html", "dosyalar": ["089_Fecr_1-30.html"]},
+    {"no":90, "ad":"Beled", "ayet":20, "inis":"Mekkî", "inis_sira":37, "dosya":"090_Beled_1-20.html", "dosyalar": ["090_Beled_1-20.html"]},
+    {"no":91, "ad":"Şems", "ayet":15, "inis":"Mekkî", "inis_sira":28, "dosya":"091_Şems_1-15.html", "dosyalar": ["091_Şems_1-15.html"]},
+    {"no":92, "ad":"Leyl", "ayet":21, "inis":"Mekkî", "inis_sira":10, "dosya":"092_Leyl_1-21.html", "dosyalar": ["092_Leyl_1-21.html"]},
+    {"no":93, "ad":"Duhâ", "ayet":11, "inis":"Mekkî", "inis_sira":5, "dosya":"093_Duha_1-11.html", "dosyalar": ["093_Duha_1-11.html"]},
+    {"no":94, "ad":"İnşirâh", "ayet":8, "inis":"Mekkî", "inis_sira":6, "dosya":"094_İnşirah_1-8.html", "dosyalar": ["094_İnşirah_1-8.html"]},
+    {"no":95, "ad":"Tîn", "ayet":8, "inis":"Mekkî", "inis_sira":30, "dosya":"095_Tin_1-8.html", "dosyalar": ["095_Tin_1-8.html"]},
+    {"no":96, "ad":"Alak", "ayet":19, "inis":"Mekkî", "inis_sira":2, "dosya":"096_Alak_1-19.html", "dosyalar": ["096_Alak_1-19.html"]},
+    {"no":97, "ad":"Kadir", "ayet":5, "inis":"Mekkî", "inis_sira":12, "dosya":"097_Kadir_1-5.html", "dosyalar": ["097_Kadir_1-5.html"]},
+    {"no":98, "ad":"Beyyine", "ayet":8, "inis":"Medenî", "inis_sira":101, "dosya":"098_Beyyine_1-8.html", "dosyalar": ["098_Beyyine_1-8.html"]},
+    {"no":99, "ad":"Zilzâl", "ayet":8, "inis":"Medenî", "inis_sira":31, "dosya":"099_Zilzal_1-8.html", "dosyalar": ["099_Zilzal_1-8.html"]},
+    {"no":100, "ad":"Âdiyât", "ayet":11, "inis":"Mekkî", "inis_sira":14, "dosya":"100_Adiyat_1-11.html", "dosyalar": ["100_Adiyat_1-11.html"]},
+    {"no":101, "ad":"Kâri‘a", "ayet":11, "inis":"Mekkî", "inis_sira":22, "dosya":"101_Karia_1-11.html", "dosyalar": ["101_Karia_1-11.html"]},
+    {"no":102, "ad":"Tekâsür", "ayet":8, "inis":"Mekkî", "inis_sira":16, "dosya":"102_Tekasür_1-8.html", "dosyalar": ["102_Tekasür_1-8.html"]},
+    {"no":103, "ad":"Asr", "ayet":3, "inis":"Mekkî", "inis_sira":13, "dosya":"103_Asr_1-3.html", "dosyalar": ["103_Asr_1-3.html"]},
+    {"no":104, "ad":"Hümeze", "ayet":9, "inis":"Mekkî", "inis_sira":34, "dosya":"104_Hümeze_1-9.html", "dosyalar": ["104_Hümeze_1-9.html"]},
+    {"no":105, "ad":"Fîl", "ayet":5, "inis":"Mekkî", "inis_sira":20, "dosya":"105_Fil_1-5.html", "dosyalar": ["105_Fil_1-5.html"]},
+    {"no":106, "ad":"Kureyş", "ayet":4, "inis":"Mekkî", "inis_sira":21, "dosya":"106_Kureyş_1-4.html", "dosyalar": ["106_Kureyş_1-4.html"]},
+    {"no":107, "ad":"Mâ‘ûn", "ayet":7, "inis":"Mekkî", "inis_sira":17, "dosya":"107_Maun_1-7.html", "dosyalar": ["107_Maun_1-7.html"]},
+    {"no":108, "ad":"Kevser", "ayet":3, "inis":"Mekkî", "inis_sira":15, "dosya":"108_Kevser_1-3.html", "dosyalar": ["108_Kevser_1-3.html"]},
+    {"no":109, "ad":"Kâfirûn", "ayet":6, "inis":"Mekkî", "inis_sira":18, "dosya":"109_Kafirun_1-6.html", "dosyalar": ["109_Kafirun_1-6.html"]},
+    {"no":110, "ad":"Nasr", "ayet":3, "inis":"Medenî", "inis_sira":111, "dosya":"110_Nasr_1-3.html", "dosyalar": ["110_Nasr_1-3.html"]},
+    {"no":111, "ad":"Tebbet", "ayet":5, "inis":"Mekkî", "inis_sira":19, "dosya":"111_Tebbet_1-5.html", "dosyalar": ["111_Tebbet_1-5.html"]},
+    {"no":112, "ad":"İhlâs", "ayet":4, "inis":"Mekkî", "inis_sira":25, "dosya":"112_İhlas_1-4.html", "dosyalar": ["112_İhlas_1-4.html"]},
+    {"no":113, "ad":"Felak", "ayet":5, "inis":"Mekkî", "inis_sira":23, "dosya":"113_Felak_1-5.html", "dosyalar": ["113_Felak_1-5.html"]},
+    {"no":114, "ad":"Nâs", "ayet":6, "inis":"Mekkî", "inis_sira":24, "dosya":"114_Nas_1-6.html", "dosyalar": ["114_Nas_1-6.html"]}
+];
+
+// DOM elemanları
+const listEl = document.getElementById('sureList');
+const searchInput = document.getElementById('searchInput');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const sortBtns = document.querySelectorAll('.sort-btn');
+const devamContainer = document.getElementById('devamContainer');
+const devamLink = document.getElementById('devamLink');
+
+const STORAGE_KEY_FILTER = 'ozgunMealFilter';
+const STORAGE_KEY_SORT = 'ozgunMealSort';
+const STORAGE_KEY_SEARCH = 'ozgunMealSearch';
+
+let currentFilter = localStorage.getItem(STORAGE_KEY_FILTER) || 'all';
+let currentSort = localStorage.getItem(STORAGE_KEY_SORT) || 'mushaf';
+let searchText = localStorage.getItem(STORAGE_KEY_SEARCH) || '';
+
+if (searchInput) searchInput.value = searchText;
+
+filterBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === currentFilter);
+});
+sortBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.sort === currentSort);
+});
+
+function updateCounts() {
+    const total = sureler.length;
+    const mekki = sureler.filter(s => s.inis === 'Mekkî').length;
+    const medeni = sureler.filter(s => s.inis === 'Medenî').length;
+    document.querySelector('[data-filter="all"] .count').textContent = total;
+    document.querySelector('[data-filter="Mekkî"] .count').textContent = mekki;
+    document.querySelector('[data-filter="Medenî"] .count').textContent = medeni;
+}
+updateCounts();
+
+const clearBtn = document.getElementById('clearTracksBtn');
+if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+        if (confirm('Tüm okuma geçmişiniz ve işaretlenen ayetler sıfırlanacaktır. Emin misiniz?')) {
+            localStorage.removeItem('ozgunMealReadVerses');
+            localStorage.removeItem('ozgunMealLastRead');
+            alert('Okuma geçmişi başarıyla temizlendi.');
+            location.reload();
+        }
+    });
+}
+
+function getLastRead() {
+    try {
+        const raw = localStorage.getItem('ozgunMealLastRead');
+        if (!raw) return null;
+        const data = JSON.parse(raw);
+        if (!data || typeof data.no !== 'number') return null;
+        return data;
+    } catch(e) { return null; }
+}
+
+// ---- YENİ getPages: Eğer s.dosyalar varsa onu kullan ----
+function getPages(s) {
+    if (s.dosyalar && Array.isArray(s.dosyalar) && s.dosyalar.length > 0) {
+        const pages = s.dosyalar.map(dosya => {
+            const match = dosya.match(/_(\d+)-(\d+)\.html$/);
+            if (match) {
+                return {
+                    start: parseInt(match[1], 10),
+                    end: parseInt(match[2], 10),
+                    dosya: dosya
+                };
+            }
+            return { start: 1, end: s.ayet, dosya: dosya };
+        });
+        // 🔥 Sayısal sıralama ekleyin
+        pages.sort((a, b) => a.start - b.start);
+        return pages;
+    }
+    // Fallback: eski otomatik mantık (chunk)
+    const m = s.dosya.match(/_1-(\d+)\.html$/);
+    if (!m) return [{ start: 1, end: s.ayet, dosya: s.dosya }];
+    const chunk = parseInt(m[1], 10);
+    if (chunk >= s.ayet) return [{ start: 1, end: s.ayet, dosya: s.dosya }];
+    const base = s.dosya.slice(0, -('_1-' + chunk + '.html').length);
+    const pages = [];
+    for (let start = 1; start <= s.ayet; start += chunk) {
+        const end = Math.min(start + chunk - 1, s.ayet);
+        pages.push({ start, end, dosya: base + '_' + start + '-' + end + '.html' });
+    }
+    return pages;
+}
+
+const expandedSureler = new Set();
+
+function temizle(metin) {
+    if (!metin) return '';
+    return metin
+        .toLowerCase()
+        .replace(/[‘’'`´•\.‑\-–—]/g, '')
+        .replace(/â/g, 'a')
+        .replace(/î/g, 'i')
+        .replace(/û/g, 'u')
+        .replace(/ç/g, 'c')
+        .replace(/ğ/g, 'g')
+        .replace(/ı/g, 'i')
+        .replace(/ö/g, 'o')
+        .replace(/ş/g, 's')
+        .replace(/ü/g, 'u')
+        .trim();
+}
+
+function renderList() {
+    let filtered = sureler;
+    if (currentFilter !== 'all') {
+        filtered = filtered.filter(s => s.inis === currentFilter);
+    }
+    if (searchText.trim() !== '') {
+        const q = temizle(searchText);
+        filtered = filtered.filter(s =>
+            temizle(s.ad).includes(q) ||
+            s.no.toString().includes(q)
+        );
+    }
+
+    const sorted = [...filtered];
+    if (currentSort === 'mushaf') {
+        sorted.sort((a,b) => a.no - b.no);
+    } else if (currentSort === 'inis') {
+        sorted.sort((a,b) => a.inis_sira - b.inis_sira);
+    } else if (currentSort === 'alfabetik') {
+        sorted.sort((a,b) => a.ad.localeCompare(b.ad, 'tr'));
+    }
+
+    const lastRead = getLastRead();
+
+    if (sorted.length === 0) {
+        listEl.innerHTML = '<div style="text-align:center; color:#9a9c98; padding:1.5rem;">🔍 Arama kriterlerine uygun sure bulunamadı.</div>';
+        devamContainer.style.display = 'none';
+        return;
+    }
+
+    let html = '';
+    sorted.forEach((s, index) => {
+        const siraNo = index + 1;
+        const isLastReadSure = !!(lastRead && s.no === lastRead.no);
+        const highlightClass = isLastReadSure ? ' highlight' : '';
+        const inisClass = s.inis === 'Mekkî' ? 'mekki' : 'medeni';
+        const inisIcon = s.inis === 'Mekkî' ? 'ph-moon-bold' : 'ph-sun-bold';
+        const pages = getPages(s);
+        const hasPages = pages.length > 1;
+        const isExpanded = hasPages && (expandedSureler.has(s.no) || isLastReadSure);
+
+        const lastReadLabel = isLastReadSure
+            ? (typeof lastRead.verse === 'number' ? (lastRead.verse + '. ayet') : (lastRead.start + '-' + lastRead.end))
+            : '';
+
+        const infoBlock = `
+            <span class="sure-info">
+                <span class="ayet"><i class="ph ph-book-bold"></i> ${s.ayet} Ayet</span>
+                <span class="inis-badge ${inisClass}"><i class="ph ${inisIcon}"></i> ${s.inis}</span>
+                <span class="nuzul"><i class="ph ph-clock-bold"></i> #${s.inis_sira}</span>
+                ${hasPages ? '<i class="ph ph-caret-down-bold accordion-icon"></i>' : '<span></span>'}
+                ${isLastReadSure ? '<span class="son-okunan"><i class="ph ph-bookmark-simple-bold"></i> ' + lastReadLabel + '</span>' : ''}
+            </span>`;
+
+        if (hasPages) {
+            const pagesHtml = pages.map(p => {
+                const isPageRead = !!(lastRead && lastRead.dosya === p.dosya);
+                return `<a href="${p.dosya}" class="page-link${isPageRead ? ' page-read' : ''}" data-no="${s.no}" data-start="${p.start}" data-end="${p.end}"><i class="ph ${isPageRead ? 'ph-check-circle-bold' : 'ph-file-text-bold'}"></i> ${p.start}-${p.end}</a>`;
+            }).join('');
+            html += `
+            <div class="sure-item has-pages${highlightClass}${isExpanded ? ' expanded' : ''}" data-no="${s.no}">
+                <span class="sure-no">${siraNo}</span>
+                <span class="sure-name">${s.ad}</span>
+                ${infoBlock}
+            </div>
+            <div class="sure-pages${isExpanded ? ' expanded' : ''}" data-pages-for="${s.no}">
+                ${pagesHtml}
+            </div>
+            `;
+        } else {
+            html += `
+            <a href="${s.dosya}" class="sure-item${highlightClass}" data-no="${s.no}" data-start="1" data-end="${s.ayet}">
+                <span class="sure-no">${siraNo}</span>
+                <span class="sure-name">${s.ad}</span>
+                ${infoBlock}
+            </a>
+            `;
+        }
+    });
+    listEl.innerHTML = html;
+
+    if (lastRead) {
+        const hasExactVerse = typeof lastRead.verse === 'number';
+        devamLink.href = hasExactVerse ? `${lastRead.dosya}#ayet-${lastRead.verse}` : lastRead.dosya;
+        const label = hasExactVerse ? `${lastRead.verse}. Ayet` : `${lastRead.start}-${lastRead.end}`;
+        devamLink.innerHTML = `<i class="ph ph-arrow-right-bold"></i> ${lastRead.ad} ${label} – Okumaya Devam Et`;
+        devamContainer.style.display = 'block';
+    } else {
+        devamContainer.style.display = 'none';
+    }
+}
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.filter;
+        localStorage.setItem(STORAGE_KEY_FILTER, currentFilter);
+        renderList();
+    });
+});
+
+sortBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        sortBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentSort = this.dataset.sort;
+        localStorage.setItem(STORAGE_KEY_SORT, currentSort);
+        renderList();
+    });
+});
+
+searchInput.addEventListener('input', function() {
+    searchText = this.value;
+    localStorage.setItem(STORAGE_KEY_SEARCH, searchText);
+    renderList();
+});
+
+listEl.addEventListener('click', function(e) {
+    const pageLink = e.target.closest('.page-link');
+    if (pageLink) {
+        const no = parseInt(pageLink.dataset.no);
+        const s = sureler.find(x => x.no === no);
+        if (s) {
+            try {
+                localStorage.setItem('ozgunMealLastRead', JSON.stringify({
+                    no: s.no,
+                    ad: s.ad,
+                    dosya: pageLink.getAttribute('href'),
+                    start: parseInt(pageLink.dataset.start, 10),
+                    end: parseInt(pageLink.dataset.end, 10)
+                }));
+            } catch(e) {}
+            renderList();
+        }
+        return;
+    }
+
+    const expandableItem = e.target.closest('.sure-item.has-pages');
+    if (expandableItem) {
+        const no = parseInt(expandableItem.dataset.no);
+        const pagesPanel = listEl.querySelector(`.sure-pages[data-pages-for="${no}"]`);
+        const willExpand = !expandableItem.classList.contains('expanded');
+        expandableItem.classList.toggle('expanded', willExpand);
+        if (pagesPanel) pagesPanel.classList.toggle('expanded', willExpand);
+        if (willExpand) {
+            expandedSureler.add(no);
+        } else {
+            expandedSureler.delete(no);
+        }
+        return;
+    }
+
+    const item = e.target.closest('.sure-item');
+    if (item) {
+        const no = parseInt(item.dataset.no);
+        const s = sureler.find(x => x.no === no);
+        if (s) {
+            try {
+                localStorage.setItem('ozgunMealLastRead', JSON.stringify({
+                    no: s.no,
+                    ad: s.ad,
+                    dosya: item.getAttribute('href'),
+                    start: parseInt(item.dataset.start, 10),
+                    end: parseInt(item.dataset.end, 10)
+                }));
+            } catch(e) {}
+        }
+    }
+});
+
+renderList();
+
+// Arama çubuğu renk değiştirme
+(function() {
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+    const defaultBg = '#1b1d1f';
+    const activeBg = '#471818';
+    function updateStyle() {
+        if (searchInput.value.trim() !== '') {
+            searchInput.style.backgroundColor = activeBg;
+            searchInput.style.borderColor = '#8a3d3d';
+        } else {
+            searchInput.style.backgroundColor = defaultBg;
+            searchInput.style.borderColor = '#3a3d3f';
+        }
+    }
+    searchInput.addEventListener('input', updateStyle);
+    searchInput.addEventListener('blur', updateStyle);
+    updateStyle();
+})();
+</script>
+<script src="navigation-fixer.js"></script>
+</body>
+</html>

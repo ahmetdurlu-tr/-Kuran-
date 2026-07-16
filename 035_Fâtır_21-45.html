@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Fâtır (35. Sure) 21-45 - Özgün Meal</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        color: #e0ddd8;}
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .sure-header {
+            background: #0f4c73;
+            color: white;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+        .sure-name-ar {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .sure-name-tr {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .sure-info {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .ayet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        .ayet-card {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+            border: 1px solid #3a3d3f;
+        }
+        .ayet-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+        }
+        .ayet-num {
+            display: inline-block;
+            background: #0f4c73;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .arabic {
+            font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .meal {
+            font-size: 1.5rem;
+            color: #d5d2cb;
+            border-left: 4px solid #0f4c73;
+            padding-left: 1rem;
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 650px) {
+            .arabic { font-size: 1.4rem; }
+            .sure-name-ar { font-size: 1.7rem; }
+            .ayet-card { padding: 1rem; }
+            .meal { font-size: 1.1rem; }
+        }
+    
+
+
+
+
+
+
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #3a3d3f;
+    border-bottom: 1px solid #3a3d3f;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.page-nav .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0f4c73;
+    color: white;
+    padding: 0.65rem 1.6rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 2px 8px rgba(122, 134, 110, 0.25);
+    border: none;
+    cursor: pointer;
+}
+.page-nav .nav-btn:hover:not(.disabled) {
+    background: #0a3552;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(122, 134, 110, 0.4);
+}
+.page-nav .nav-btn:active:not(.disabled) {
+    transform: translateY(0);
+}
+.page-nav .nav-btn.disabled {
+    background: #a8b09e;
+    cursor: default;
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.page-nav .nav-btn .arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+.page-nav .page-indicator {
+    font-size: 0.9rem;
+    color: #d5d2cb;
+    font-weight: 500;
+    background: #3a3d3f;
+    padding: 0.3rem 1.2rem;
+    border-radius: 2rem;
+    letter-spacing: 0.3px;
+}
+
+
+@media (max-width: 650px) {
+    .page-nav .nav-btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    .page-nav {
+        gap: 1rem;
+    }
+}
+
+    
+        
+    }
+
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    /* Ana Sayfa Butonu - Header Rengiyle Uyumlu */
+    
+    
+    
+    
+    
+    
+    
+    </style>
+
+
+
+
+
+
+
+
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="sure-header">
+<div class="sure-name-ar">فاطر</div>
+<div class="sure-name-tr">Fâtır (35. Sure)</div>
+<div class="sure-info">45 Ayet 21 - 45 | Özgün Türkçe Meal</div>
+</div>
+<div class="ayet-list">
+<div class="ayet-card" id="ayet-21">
+<div class="ayet-num">Fâtır - Ayet 21</div>
+<div class="arabic">وَلَا ٱلظِّلُّ وَلَا ٱلْحَرُورُ</div>
+<div class="meal">Gölge ile sıcaklık da bir olmaz.</div>
+</div>
+<div class="ayet-card" id="ayet-22">
+<div class="ayet-num">Fâtır - Ayet 22</div>
+<div class="arabic">وَمَا يَسْتَوِى ٱلْأَحْيَآءُ وَلَا ٱلْأَمْوَٰتُ إِنَّ ٱللَّهَ يُسْمِعُ مَن يَشَآءُ وَمَآ أَنتَ بِمُسْمِعٍ مَّن فِى ٱلْقُبُورِ</div>
+<div class="meal">Dirilerle ölüler de bir olmaz. Şüphesiz Allah dilediğine işittirir. Sen kabirlerdekilere işittirecek değilsin.</div>
+</div>
+<div class="ayet-card" id="ayet-23">
+<div class="ayet-num">Fâtır - Ayet 23</div>
+<div class="arabic">إِنْ أَنتَ إِلَّا نَذِيرٌ</div>
+<div class="meal">Sen sadece bir uyarıcısın.</div>
+</div>
+<div class="ayet-card" id="ayet-24">
+<div class="ayet-num">Fâtır - Ayet 24</div>
+<div class="arabic">إِنَّآ أَرْسَلْنَٰكَ بِٱلْحَقِّ بَشِيرًا وَنَذِيرًا وَإِن مِّنْ أُمَّةٍ إِلَّا خَلَا فِيهَا نَذِيرٌ</div>
+<div class="meal">Seni hak ile müjdeleyici ve uyarıcı olarak gönderdik. Hiçbir ümmet yoktur ki, içinde bir uyarıcı gelip geçmiş olmasın.</div>
+</div>
+<div class="ayet-card" id="ayet-25">
+<div class="ayet-num">Fâtır - Ayet 25</div>
+<div class="arabic">وَإِن يُكَذِّبُوكَ فَقَدْ كَذَّبَ ٱلَّذِينَ مِن قَبْلِهِمْ جَآءَتْهُمْ رُسُلُهُم بِٱلْبَيِّنَٰتِ وَبِٱلزُّبُرِ وَبِٱلْكِتَٰبِ ٱلْمُنِيرِ</div>
+<div class="meal">Eğer seni yalanlıyorlarsa, onlardan öncekiler de yalanlamışlardı. Peygamberleri onlara apaçık deliller, sahifeler ve aydınlatıcı kitap getirmişlerdi.</div>
+</div>
+<div class="ayet-card" id="ayet-26">
+<div class="ayet-num">Fâtır - Ayet 26</div>
+<div class="arabic">ثُمَّ أَخَذْتُ ٱلَّذِينَ كَفَرُوا۟ فَكَيْفَ كَانَ نَكِيرِ</div>
+<div class="meal">Sonra ben o inkâr edenleri yakaladım. Benim azabım nasıldı!</div>
+</div>
+<div class="ayet-card" id="ayet-27">
+<div class="ayet-num">Fâtır - Ayet 27</div>
+<div class="arabic">أَلَمْ تَرَ أَنَّ ٱللَّهَ أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءً فَأَخْرَجْنَا بِهِۦ ثَمَرَٰتٍ مُّخْتَلِفًا أَلْوَٰنُهَا وَمِنَ ٱلْجِبَالِ جُدَدٌۢ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَٰنُهَا وَغَرَابِيبُ سُودٌ</div>
+<div class="meal">Görmedin mi? Allah gökten su indirdi. Onunla renkleri çeşitli ürünler çıkardık. Dağlardan da beyaz, kırmızı, renkleri çeşitli ve siyah olan yollar (damarlar) yarattık.</div>
+</div>
+<div class="ayet-card" id="ayet-28">
+<div class="ayet-num">Fâtır - Ayet 28</div>
+<div class="arabic">وَمِنَ ٱلنَّاسِ وَٱلدَّوَآبِّ وَٱلْأَنْعَٰمِ مُخْتَلِفٌ أَلْوَٰنُهُۥ كَذَٰلِكَ إِنَّمَا يَخْشَى ٱللَّهَ مِنْ عِبَادِهِ ٱلْعُلَمَٰٓؤُا۟ إِنَّ ٱللَّهَ عَزِيزٌ غَفُورٌ</div>
+<div class="meal">İnsanlardan, canlılardan ve hayvanlardan da yine türlü türlü renkler vardır. Kulları içinde Allah'tan ancak âlim olanlar korkar. Şüphesiz Allah, mutlak güç sahibidir, çok bağışlayıcıdır.</div>
+</div>
+<div class="ayet-card" id="ayet-29">
+<div class="ayet-num">Fâtır - Ayet 29</div>
+<div class="arabic">إِنَّ ٱلَّذِينَ يَتْلُونَ كِتَٰبَ ٱللَّهِ وَأَقَامُوا۟ ٱلصَّلَوٰةَ وَأَنفَقُوا۟ مِمَّا رَزَقْنَٰهُمْ سِرًّا وَعَلَانِيَةً يَرْجُونَ تِجَٰرَةً لَّن تَبُورَ</div>
+<div class="meal">Allah'ın kitabını okuyan, namazı kılan ve kendilerine verdiğimiz rızıktan gizli açık harcayanlar, asla batmayacak bir ticaret umarlar.</div>
+</div>
+<div class="ayet-card" id="ayet-30">
+<div class="ayet-num">Fâtır - Ayet 30</div>
+<div class="arabic">لِيُوَفِّيَهُمْ أُجُورَهُمْ وَيَزِيدَهُم مِّن فَضْلِهِۦٓ إِنَّهُۥ غَفُورٌ شَكُورٌ</div>
+<div class="meal">Çünkü Allah onlara ücretlerini tam ödeyecek ve lütfundan onlara daha fazlasını verecektir. Şüphesiz O, çok bağışlayıcıdır, çok mükâfatlandırıcıdır.</div>
+</div>
+<div class="ayet-card" id="ayet-31">
+<div class="ayet-num">Fâtır - Ayet 31</div>
+<div class="arabic">وَٱلَّذِىٓ أَوْحَيْنَآ إِلَيْكَ مِنَ ٱلْكِتَٰبِ هُوَ ٱلْحَقُّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ إِنَّ ٱللَّهَ بِعِبَادِهِۦ لَخَبِيرٌۢ بَصِيرٌ</div>
+<div class="meal">Sana vahyettiğimiz kitap, kendinden öncekileri doğrulayıcı olarak gelen haktır. Şüphesiz Allah, kullarından haberdardır, onları görendir.</div>
+</div>
+<div class="ayet-card" id="ayet-32">
+<div class="ayet-num">Fâtır - Ayet 32</div>
+<div class="arabic">ثُمَّ أَوْرَثْنَا ٱلْكِتَٰبَ ٱلَّذِينَ ٱصْطَفَيْنَا مِنْ عِبَادِنَا فَمِنْهُمْ ظَالِمٌ لِّنَفْسِهِۦ وَمِنْهُم مُّقْتَصِدٌ وَمِنْهُمْ سَابِقٌۢ بِٱلْخَيْرَٰتِ بِإِذْنِ ٱللَّهِ ذَٰلِكَ هُوَ ٱلْفَضْلُ ٱلْكَبِيرُ</div>
+<div class="meal">Sonra kitabı, kullarımızdan seçtiklerimize miras kıldık. Onlardan kendine zulmeden de var, orta yolu tutan da var, Allah'ın izniyle hayırlarda yarışan da var. İşte bu, büyük lütuftur.</div>
+</div>
+<div class="ayet-card" id="ayet-33">
+<div class="ayet-num">Fâtır - Ayet 33</div>
+<div class="arabic">جَنَّٰتُ عَدْنٍ يَدْخُلُونَهَا يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍ وَلُؤْلُؤًا وَلِبَاسُهُمْ فِيهَا حَرِيرٌ</div>
+<div class="meal">Adn cennetlerine girerler. Orada altın bilezikler ve incilerle süslenirler. Orada giysileri de ipektir.</div>
+</div>
+<div class="ayet-card" id="ayet-34">
+<div class="ayet-num">Fâtır - Ayet 34</div>
+<div class="arabic">وَقَالُوا۟ ٱلْحَمْدُ لِلَّهِ ٱلَّذِىٓ أَذْهَبَ عَنَّا ٱلْحَزَنَ إِنَّ رَبَّنَا لَغَفُورٌ شَكُورٌ</div>
+<div class="meal">Orada: "Bize hüznü gideren Allah'a hamd olsun. Rabbimiz gerçekten çok bağışlayıcı, çok mükâfatlandırıcıdır." derler.</div>
+</div>
+<div class="ayet-card" id="ayet-35">
+<div class="ayet-num">Fâtır - Ayet 35</div>
+<div class="arabic">ٱلَّذِىٓ أَحَلَّنَا دَارَ ٱلْمُقَامَةِ مِن فَضْلِهِۦ لَا يَمَسُّنَا فِيهَا نَصَبٌ وَلَا يَمَسُّنَا فِيهَا لُغُوبٌ</div>
+<div class="meal">"Lütfuyla bizi kalıcılık yurduna yerleştiren O'dur. Orada bize ne yorgunluk dokunur ne de usanç gelir."</div>
+</div>
+<div class="ayet-card" id="ayet-36">
+<div class="ayet-num">Fâtır - Ayet 36</div>
+<div class="arabic">وَٱلَّذِينَ كَفَرُوا۟ لَهُمْ نَارُ جَهَنَّمَ لَا يُقْضَىٰ عَلَيْهِمْ فَيَمُوتُوا۟ وَلَا يُخَفَّفُ عَنْهُم مِّنْ عَذَابِهَا كَذَٰلِكَ نَجْزِى كُلَّ كَفُورٍ</div>
+<div class="meal">İnkâr edenlere gelince, onlara cehennem ateşi vardır. Ne ölümlerine hükmedilir ki ölsünler, ne de azapları hafifletilir. İşte biz her nankörü böyle cezalandırırız.</div>
+</div>
+<div class="ayet-card" id="ayet-37">
+<div class="ayet-num">Fâtır - Ayet 37</div>
+<div class="arabic">وَهُمْ يَصْطَرِخُونَ فِيهَا رَبَّنَآ أَخْرِجْنَا نَعْمَلْ صَٰلِحًا غَيْرَ ٱلَّذِى كُنَّا نَعْمَلُ أَوَلَمْ نُعَمِّرْكُم مَّا يَتَذَكَّرُ فِيهِ مَن تَذَكَّرَ وَجَآءَكُمُ ٱلنَّذِيرُ فَذُوقُوا۟ فَمَا لِلظَّٰلِمِينَ مِن نَّصِيرٍ</div>
+<div class="meal">Orada feryat ederler: "Rabbimiz! Bizi çıkar, yaptığımızdan başka salih amel işleyelim." Size, düşünecek olanın düşünebileceği kadar bir ömür vermedik mi? Size uyarıcı da gelmişti. Öyleyse tadın azabı! Zalimlere yardım eden yoktur.</div>
+</div>
+<div class="ayet-card" id="ayet-38">
+<div class="ayet-num">Fâtır - Ayet 38</div>
+<div class="arabic">إِنَّ ٱللَّهَ عَٰلِمُ غَيْبِ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ إِنَّهُۥ عَلِيمٌۢ بِذَاتِ ٱلصُّدُورِ</div>
+<div class="meal">Şüphesiz Allah, göklerin ve yerin gaybını bilendir. O, göğüslerin özünü hakkıyla bilendir.</div>
+</div>
+<div class="ayet-card" id="ayet-39">
+<div class="ayet-num">Fâtır - Ayet 39</div>
+<div class="arabic">هُوَ ٱلَّذِى جَعَلَكُمْ خَلَٰٓئِفَ فِى ٱلْأَرْضِ فَمَن كَفَرَ فَعَلَيْهِ كُفْرُهُۥ وَلَا يَزِيدُ ٱلْكَٰفِرِينَ كُفْرُهُمْ عِندَ رَبِّهِمْ إِلَّا مَقْتًا وَلَا يَزِيدُ ٱلْكَٰفِرِينَ كُفْرُهُمْ إِلَّا خَسَارًا</div>
+<div class="meal">Sizi yeryüzünde halifeler yapan O'dur. Kim inkâr ederse, inkârı kendi aleyhinedir. İnkârcılara inkârları, Rab'leri katında gazaptan başka bir şey artırmaz. İnkârcılara inkârları, kayıptan başka bir şey artırmaz.</div>
+</div>
+<div class="ayet-card" id="ayet-40">
+<div class="ayet-num">Fâtır - Ayet 40</div>
+<div class="arabic">قُلْ أَرَءَيْتُمْ شُرَكَآءَكُمُ ٱلَّذِينَ تَدْعُونَ مِن دُونِ ٱللَّهِ أَرُونِى مَاذَا خَلَقُوا۟ مِنَ ٱلْأَرْضِ أَمْ لَهُمْ شِرْكٌ فِى ٱلسَّمَٰوَٰتِ أَمْ ءَاتَيْنَٰهُمْ كِتَٰبًا فَهُمْ عَلَىٰ بَيِّنَتٍ مِّنْهُ بَلْ إِن يَعِدُ ٱلظَّٰلِمُونَ بَعْضُهُم بَعْضًا إِلَّا غُرُورًا</div>
+<div class="meal">De ki: "Allah'tan başka taptığınız ortaklarınızı gördünüz mü? Bana gösterin, yeryüzünden ne yarattılar? Yoksa göklerde bir ortaklıkları mı var? Yoksa onlara bir kitap verdik de, onlar bu kitaptan bir delile mi dayanıyorlar? Hayır, zalimler birbirlerine ancak aldatmadan başka bir şey vaat etmezler."</div>
+</div>
+<div class="ayet-card" id="ayet-41">
+<div class="ayet-num">Fâtır - Ayet 41</div>
+<div class="arabic">إِنَّ ٱللَّهَ يُمْسِكُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ أَن تَزُولَا وَلَئِن زَالَتَآ إِنْ أَمْسَكَهُمَا مِنْ أَحَدٍ مِّنۢ بَعْدِهِۦٓ إِنَّهُۥ كَانَ حَلِيمًا غَفُورًا</div>
+<div class="meal">Şüphesiz Allah, gökleri ve yeri yok olmaktan tutar. Eğer yok olacak olsalar, O'ndan başka onları kimse tutamaz. O, çok yumuşak davranandır, çok bağışlayıcıdır.</div>
+</div>
+<div class="ayet-card" id="ayet-42">
+<div class="ayet-num">Fâtır - Ayet 42</div>
+<div class="arabic">وَأَقْسَمُوا۟ بِٱللَّهِ جَهْدَ أَيْمَٰنِهِمْ لَئِن جَآءَهُمْ نَذِيرٌ لَّيَكُونُنَّ أَهْدَىٰ مِنْ إِحْدَى ٱلْأُمَمِ فَلَمَّا جَآءَهُمْ نَذِيرٌ مَّا زَادَهُمْ إِلَّا نُفُورًا</div>
+<div class="meal">Bütün güçleriyle Allah'a yemin ettiler: "Eğer onlara bir uyarıcı gelirse, herhangi bir ümmetten daha doğru yolda olurlar." Fakat onlara uyarıcı gelince, kaçıştan başka bir şey artırmadı.</div>
+</div>
+<div class="ayet-card" id="ayet-43">
+<div class="ayet-num">Fâtır - Ayet 43</div>
+<div class="arabic">ٱسْتِكْبَارًا فِى ٱلْأَرْضِ وَمَكْرَ ٱلسَّيِّئِ وَلَا يَحِيقُ ٱلْمَكْرُ ٱلسَّيِّئُ إِلَّا بِأَهْلِهِۦ فَهَلْ يَنظُرُونَ إِلَّا سُنَّتَ ٱلْأَوَّلِينَ فَلَن تَجِدَ لِسُنَّتِ ٱللَّهِ تَبْدِيلًا وَلَن تَجِدَ لِسُنَّتِ ٱللَّهِ تَحْوِيلًا</div>
+<div class="meal">Yeryüzünde büyüklük taslamaları ve kötü tuzak kurmaları yüzünden. Oysa kötü tuzak, ancak sahibini kuşatır. Onlar, öncekilerin kanunundan başkasını mı bekliyorlar? Allah'ın kanununda asla bir değişiklik bulamazsın. Allah'ın kanununda asla bir sapma da bulamazsın.</div>
+</div>
+<div class="ayet-card" id="ayet-44">
+<div class="ayet-num">Fâtır - Ayet 44</div>
+<div class="arabic">أَوَلَمْ يَسِيرُوا۟ فِى ٱلْأَرْضِ فَيَنظُرُوا۟ كَيْفَ كَانَ عَٰقِبَةُ ٱلَّذِينَ مِن قَبْلِهِمْ وَكَانُوٓا۟ أَشَدَّ مِنْهُمْ قُوَّةً وَمَا كَانَ ٱللَّهُ لِيُعْجِزَهُۥ مِن شَىْءٍ فِى ٱلسَّمَٰوَٰتِ وَلَا فِى ٱلْأَرْضِ إِنَّهُۥ كَانَ عَلِيمًا قَدِيرًا</div>
+<div class="meal">Yeryüzünde dolaşıp da, kendilerinden öncekilerin sonunun nasıl olduğuna bakmadılar mı? Onlar, kendilerinden daha güçlüydüler. Ne göklerde ne de yerde hiçbir şey Allah'ı aciz bırakamaz. Şüphesiz O, her şeyi bilendir, her şeye kadirdir.</div>
+</div>
+<div class="ayet-card" id="ayet-45">
+<div class="ayet-num">Fâtır - Ayet 45</div>
+<div class="arabic">وَلَوْ يُؤَاخِذُ ٱللَّهُ ٱلنَّاسَ بِمَا كَسَبُوا۟ مَا تَرَكَ عَلَىٰ ظَهْرِهَا مِن دَآبَّةٍ وَلَٰكِن يُؤَخِّرُهُمْ إِلَىٰٓ أَجَلٍ مُّسَمًّى فَإِذَا جَآءَ أَجَلُهُمْ فَإِنَّ ٱللَّهَ كَانَ بِعِبَادِهِۦ بَصِيرًۢا</div>
+<div class="meal">Eğer Allah, insanları yaptıkları yüzünden hemen cezalandırsaydı, yeryüzünde hiçbir canlı bırakmazdı. Fakat onları belirlenmiş bir süreye kadar erteler. Ecelleri gelince, şüphesiz Allah kullarını hakkıyla görendir.</div>
+</div>
+<div class="page-nav"><a class="nav-btn" href="035_Fâtır_1-20.html"><span class="arrow">←</span> Önceki</a><span class="page-indicator">Sayfa 196 / 340</span><a class="nav-btn" href="036_Yâsîn_1-20.html">Sonraki <span class="arrow">→</span></a></div>                            <div class="page-footer">
+        <i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br>
+        <span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;">-ard-</a></span>
+    </div>
+</div>
+</div>
+    
+    
+
+    <!-- Ana Sayfa Butonu - Phosphor Bold -->
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+<!-- Ana Sayfa Butonu -->
+<style>
+.home-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999999;
+    background: #0f4c73 !important;
+    color: #ffffff !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255,255,255,0.12);
+}
+.home-btn svg {
+    width: 28px;
+    height: 28px;
+    transition: all 0.4s ease;
+    color: #ffffff !important;
+}
+.home-btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 35px rgba(0,0,0,0.5);
+    background: #0a3552 !important;
+    border-color: rgba(255,255,255,0.25);
+}
+.home-btn:hover svg {
+    transform: rotate(180deg) scale(1.1);
+    color: #ffffff !important;
+}
+.home-btn:active {
+    transform: scale(0.95);
+}
+.home-btn .tooltip {
+    position: absolute;
+    right: 72px;
+    background: rgba(30,30,30,0.95);
+    color: #e0ddd8;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+.home-btn:hover .tooltip {
+    opacity: 1;
+}
+@media (max-width: 650px) {
+    .home-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    .home-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+    .home-btn .tooltip {
+        display: none;
+    }
+}
+</style>
+
+<a href="index.html" class="home-btn" title="Ana Sayfa">
+    <span class="tooltip">⌂ Ana Sayfa</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="none"/>
+        <circle cx="60" cy="60" r="16" fill="currentColor"/>
+        <circle cx="128" cy="60" r="16" fill="currentColor"/>
+        <circle cx="196" cy="60" r="16" fill="currentColor"/>
+        <circle cx="60" cy="128" r="16" fill="currentColor"/>
+        <circle cx="128" cy="128" r="16" fill="currentColor"/>
+        <circle cx="196" cy="128" r="16" fill="currentColor"/>
+        <circle cx="60" cy="196" r="16" fill="currentColor"/>
+        <circle cx="128" cy="196" r="16" fill="currentColor"/>
+        <circle cx="196" cy="196" r="16" fill="currentColor"/>
+    </svg>
+</a>
+
+
+
+
+
+
+
+
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+<script src="navigation-fixer.js"></script>
+</body>
+</html>

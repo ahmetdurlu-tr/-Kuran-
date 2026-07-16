@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Bakara 27 - Açıklama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #e0ddd8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-card {
+            background: #0f4c73;
+            color: #fff;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+        .header-card .sure-name-ar {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .header-card .sure-name-tr {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .header-card .sure-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        .content-card {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #3a3d3f;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .arabic-box {
+            font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 1.2rem;
+            padding: 0.5rem 1rem;
+            background: #1f2123;
+            border-radius: 1rem;
+            border-left: 4px solid #0f4c73;
+        }
+        .meal-box {
+            font-size: 1.4rem;
+            color: #d5d2cb;
+            padding: 0.8rem 1rem;
+            background: #1f2123;
+            border-radius: 1rem;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #0f4c73;
+        }
+        .aciklama-baslik {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #d5d2cb;
+            margin: 1.8rem 0 1rem 0;
+            border-bottom: 2px solid #0f4c73;
+            padding-bottom: 0.5rem;
+        }
+        .aciklama-metin {
+            font-size: 1.1rem;
+            color: #d0cec8;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        .aciklama-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem 0;
+        }
+        .aciklama-list li {
+            background: #1f2123;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border-radius: 0.8rem;
+            border-left: 4px solid #0f4c73;
+            font-size: 1rem;
+            color: #d0cec8;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .aciklama-list li::before {
+            content: "•";
+            color: #0f4c73;
+            font-weight: bold;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .ayet-referans {
+            background: #1f2123;
+            border: 1px solid #0f4c73;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            margin: 0.6rem 0;
+            font-size: 1rem;
+            color: #d0cec8;
+        }
+        .ayet-referans .ref-arapca {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 1.4rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 0.5rem;
+        }
+        .ayet-referans .ref-meal {
+            color: #8eb4d9;
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            background: #0f4c73;
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            transition: background 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 2px 8px rgba(122, 134, 110, 0.25);
+        }
+        .back-link:hover {
+            background: #0a3552;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(122, 134, 110, 0.4);
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 650px) {
+            .arabic-box { font-size: 1.4rem; }
+            .meal-box { font-size: 1.2rem; }
+            .header-card .sure-name-ar { font-size: 1.7rem; }
+            .content-card { padding: 1.2rem; }
+        }
+    </style>
+
+
+
+
+
+
+
+
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- Başlık Kartı -->
+        <div class="header-card">
+            <div class="sure-name-ar">البقرة</div>
+            <div class="sure-name-tr">Bakara Suresi – 27. Ayet</div>
+            <div class="sure-info">Açıklama | "Allah'ın Birleştirilmesini Emrettiği Bağlar" Nedir?</div>
+        </div>
+
+        <!-- Ayet Metni ve Meal -->
+        <div class="content-card">
+            <div class="arabic-box">
+                وَيَقْطَعُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ
+            </div>
+            <div class="meal-box">
+                <strong>Meal (ilgili bölüm):</strong> ...Allah'ın birleştirilmesini emrettiği bağları koparırlar...
+            </div>
+
+            <!-- Açıklama Başlığı -->
+            <div class="aciklama-baslik"> "Allah'ın Birleştirilmesini Emrettiği Bağlar" Ne Anlama Gelir?</div>
+
+            <div class="aciklama-metin">
+                Ayette geçen bu ifade, Allah'ın korunmasını ve sürdürülmesini istediği her türlü bağı kapsayan geniş bir anlama sahiptir. Bu bağların koparılması, doğru yoldan sapanların (fasıkların) temel özelliklerinden biri olarak sayılmıştır. Peki bu bağlar nelerdir?
+            </div>
+
+            <!-- 1. Akrabalık Bağları -->
+            <div class="aciklama-baslik"> 1. Akrabalık Bağları</div>
+            <div class="aciklama-metin">
+                En yaygın yorum, Allah'ın akrabalık ilişkilerinin sürdürülmesini emrettiğidir. Kur'an, akraba bağlarını koparanları şiddetle eleştirir.
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Muhammed 47/22-23</strong> – Akrabalık bağlarını koparanlar:
+                <div class="ref-arapca">فَهَلْ عَسَيْتُمْ إِن تَوَلَّيْتُمْ أَن تُفْسِدُوا۟ فِى ٱلْأَرْضِ وَتُقَطِّعُوٓا۟ أَرْحَامَكُمْ ٢٢ أُو۟لَٰٓئِكَ ٱلَّذِينَ لَعَنَهُمُ ٱللَّهُ فَأَصَمَّهُمْ وَأَعْمَىٰٓ أَبْصَٰرَهُمْ</div>
+                <div class="ref-meal">"İş başına geçtiğinizde yeryüzünde bozgunculuk çıkarır ve akrabalık bağlarınızı koparırsınız, öyle mi? İşte onlar, Allah'ın rahmetinden yoksun bıraktığı, kulaklarını sağır ettiği ve gözlerini kör ettiği kimselerdir."</div>
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Ra'd 13/25</strong> – Ahdi bozan ve bağları koparanlar:
+                <div class="ref-arapca">وَٱلَّذِينَ يَنقُضُونَ عَهْدَ ٱللَّهِ مِنۢ بَعْدِ مِيثَٰقِهِۦ وَيَقْطَعُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيُفْسِدُونَ فِى ٱلْأَرْضِ ۙ أُو۟لَٰٓئِكَ لَهُمُ ٱللَّعْنَةُ وَلَهُمْ سُوٓءُ ٱلدَّارِ</div>
+                <div class="ref-meal">"Onlar ki, Allah'a verdikleri sözü sağlamlaştırdıktan sonra bozarlar, Allah'ın birleştirilmesini emrettiği bağları koparırlar ve yeryüzünde bozgunculuk çıkarırlar. İşte rahmetten yoksun bırakılma onlar içindir ve kötü yurt da onlarındır."</div>
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Nisâ 4/1</strong> – Akrabalık bağlarına dikkat çekilmesi:
+                <div class="ref-arapca">يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍ وَٰحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَآءً وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا</div>
+                <div class="ref-meal">"Ey insanlar! Sizi tek bir candan yaratan ve ondan da eşini yaratıp ikisinden birçok erkek ve kadın türeten Yaratıcınıza karşı sorumluluk bilinci taşıyın. Adına birbirinizden dileklerde bulunduğunuz Allah'a karşı ve akrabalık bağlarını koparmaktan sakının. Şüphesiz Allah, üzerinizde tam bir gözetleyicidir."</div>
+            </div>
+
+            <!-- 2. Toplumsal İlişkiler -->
+            <div class="aciklama-baslik"> 2. Toplumsal İlişkiler ve Kardeşlik Bağları</div>
+            <div class="aciklama-metin">
+                Komşuluk, dostluk ve toplum içindeki dayanışma bağları da bu kapsamdadır. Müslümanlar arasındaki kardeşlik bağını zayıflatmak, toplumu bölmek ve fitne çıkarmak da bu bağları koparmak sayılır.
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Hucurât 49/10</strong> – Müminler kardeştir:
+                <div class="ref-arapca">إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ</div>
+                <div class="ref-meal">"Müminler ancak kardeştirler. Öyleyse kardeşlerinizin arasını düzeltin ve Allah'a karşı sorumluluk bilinci taşıyın ki, acıyıp esirgenesiniz."</div>
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Âl-i İmrân 3/103</strong> – Birlik ve beraberlik:
+                <div class="ref-arapca">وَٱعْتَصِمُوا۟ بِحَبْلِ ٱللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا۟ وَٱذْكُرُوا۟ نِعْمَتَ ٱللَّهِ عَلَيْكُمْ إِذْ كُنتُمْ أَعْدَآءً فَأَلَّفَ بَيْنَ قُلُوبِكُمْ فَأَصْبَحْتُم بِنِعْمَتِهِۦٓ إِخْوَٰنًا</div>
+                <div class="ref-meal">"Ve hep birlikte Allah'ın ipine sımsıkı sarılın, ayrılıp bölünmeyin. Allah'ın üzerinizdeki nimetini hatırlayın: Hani siz birbirinize düşman idiniz de O, kalplerinizi birleştirdi ve O'nun bu iyiliği sayesinde kardeşler oldunuz."</div>
+            </div>
+
+            <!-- 3. İman Bağı -->
+            <div class="aciklama-baslik"> 3. İman ve Vahiy Bağı</div>
+            <div class="aciklama-metin">
+                Allah ile kulları arasındaki en temel bağ olan iman bağını koparmak, peygamberlerle ve vahiyle olan bağı kesmek de bu ifadenin kapsamındadır. Allah'a verilen sözün bozulmasıyla (aynı ayetin ilk kısmı) bu bağ arasında yakın bir ilişki vardır.
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Bakara 2/83</strong> – Yakub'un oğulları'ndan alınan söz:
+                <div class="ref-arapca">وَإِذْ أَخَذْنَا مِيثَٰقَ بَنِىٓ إِسْرَٰٓءِيلَ لَا تَعْبُدُونَ إِلَّا ٱللَّهَ وَبِٱلْوَٰلِدَيْنِ إِحْسَانًا وَذِى ٱلْقُرْبَىٰ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينِ وَقُولُوا۟ لِلنَّاسِ حُسْنًا</div>
+                <div class="ref-meal">"Hani Yakub'un oğullarından şöyle sağlam söz almıştık: 'Allah'tan başkasına kulluk etmeyin; ana babaya, yakın akrabaya, yetimlere ve düşkünlere iyilik edin; insanlara güzel söz söyleyin...'"</div>
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Enfâl 8/46</strong> – Allah ve Resulü'ne itaat:
+                <div class="ref-arapca">وَأَطِيعُوا۟ ٱللَّهَ وَرَسُولَهُۥ وَلَا تَنَٰزَعُوا۟ فَتَفْشَلُوا۟ وَتَذْهَبَ رِيحُكُمْ وَٱصْبِرُوٓا۟ إِنَّ ٱللَّهَ مَعَ ٱلصَّٰبِرِينَ</div>
+                <div class="ref-meal">"Allah'a ve Elçisine itaat edin; birbirinizle çekişmeyin, yoksa başarısızlığa düşersiniz ve gücünüz gider. Sabredin; çünkü Allah sabredenlerle beraberdir."</div>
+            </div>
+
+            <!-- 4. Peygamberler Arasındaki Bağ -->
+            <div class="aciklama-baslik"> 4. Peygamberler Arasındaki Bağ</div>
+            <div class="aciklama-metin">
+                Tüm peygamberlerin aynı hakikati getirdiğini kabul etmek ve aralarında ayrım yapmamak da Allah'ın emrettiği bir bağdır. Bazı peygamberleri kabul edip bazılarını reddetmek bu bağı koparmaktır.
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Bakara 2/136</strong> – Peygamberler arasında ayrım yapmama:
+                <div class="ref-arapca">قُولُوٓا۟ ءَامَنَّا بِٱللَّهِ وَمَآ أُنزِلَ إِلَيْنَا وَمَآ أُنزِلَ إِلَىٰٓ إِبْرَٰهِـۧمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ وَيَعْقُوبَ وَٱلْأَسْبَاطِ وَمَآ أُوتِىَ مُوسَىٰ وَعِيسَىٰ وَمَآ أُوتِىَ ٱلنَّبِيُّونَ مِن رَّبِّهِمْ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّنْهُمْ وَنَحْنُ لَهُۥ مُسْلِمُونَ</div>
+                <div class="ref-meal">"Deyin ki: 'Biz Allah'a, bize indirilene, İbrahim'e, İsmail'e, İshak'a, Yakub'a ve torunlarına indirilene, Musa'ya ve İsa'ya verilene ve diğer peygamberlere Yaratıcılarından verilenlere inanırız. Onlar arasında hiçbir ayrım yapmayız. Biz O'na teslim olanlarız.'"</div>
+            </div>
+
+            <div class="ayet-referans">
+                <strong>Nisâ 4/150-151</strong> – Peygamberler arasında ayrım yapanlar:
+                <div class="ref-arapca">إِنَّ ٱلَّذِينَ يَكْفُرُونَ بِٱللَّهِ وَرُسُلِهِۦ وَيُرِيدُونَ أَن يُفَرِّقُوا۟ بَيْنَ ٱللَّهِ وَرُسُلِهِۦ وَيَقُولُونَ نُؤْمِنُ بِبَعْضٍ وَنَكْفُرُ بِبَعْضٍ وَيُرِيدُونَ أَن يَتَّخِذُوا۟ بَيْنَ ذَٰلِكَ سَبِيلًا ١٥٠ أُو۟لَٰٓئِكَ هُمُ ٱلْكَٰفِرُونَ حَقًّا</div>
+                <div class="ref-meal">"Allah'ı ve peygamberlerini reddedenler, Allah ile peygamberleri arasında ayrım yapmak isteyenler, 'Bir kısmına inanır, bir kısmını reddederiz' diyenler ve böylece ikisi arasında bir yol tutmak isteyenler... İşte onlar gerçekten doğru yolu reddedenlerdir."</div>
+            </div>
+
+            <div class="aciklama-baslik"> Özetle</div>
+            <div class="aciklama-metin">
+                "Allah'ın birleştirilmesini emrettiği bağları koparmak", yalnızca akrabalık bağlarını kesmekle sınırlı olmayıp; Allah'ın korunmasını istediği <strong>akrabalık bağları, toplumsal kardeşlik bağları, iman ve vahiy bağı, peygamberler arasındaki birlik zinciri</strong> gibi tüm kutsal bağları hiçe saymayı kapsayan çok geniş bir anlama sahiptir. Bu davranış, Bakara 27'de doğru yoldan sapanların (fasıkların) temel özelliklerinden biri olarak sayılmış ve kaybedenlerden olacakları bildirilmiştir.
+            </div>
+
+            <!-- Geri dönüş butonu -->
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="#" onclick="history.back(); return false;" class="back-link">← Ayet Sayfasına Dön</a>
+            </div>
+        </div>
+
+                                    <div class="page-footer">
+        <i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br>
+        <span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;">-ard-</a></span>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+</body>
+</html>

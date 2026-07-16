@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Bakara 31 - Açıklama</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #1b1d1f;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #e0ddd8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-card {
+            background: #0f4c73;
+            color: #fff;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+        .header-card .sure-name-ar {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .header-card .sure-name-tr {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .header-card .sure-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        .content-card {
+            background: #26282a;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #3a3d3f;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .arabic-box {
+            font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 1.2rem;
+            padding: 0.5rem 1rem;
+            background: #1f2123;
+            border-radius: 1rem;
+            border-left: 4px solid #0f4c73;
+        }
+        .meal-box {
+            font-size: 1.4rem;
+            color: #d5d2cb;
+            padding: 0.8rem 1rem;
+            background: #1f2123;
+            border-radius: 1rem;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #0f4c73;
+        }
+        .aciklama-baslik {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #d5d2cb;
+            margin: 1.8rem 0 1rem 0;
+            border-bottom: 2px solid #0f4c73;
+            padding-bottom: 0.5rem;
+        }
+        .aciklama-metin {
+            font-size: 1.1rem;
+            color: #d0cec8;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        .aciklama-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem 0;
+        }
+        .aciklama-list li {
+            background: #1f2123;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.6rem;
+            border-radius: 0.8rem;
+            border-left: 4px solid #0f4c73;
+            font-size: 1rem;
+            color: #d0cec8;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        .aciklama-list li::before {
+            content: "•";
+            color: #0f4c73;
+            font-weight: bold;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .ayet-referans {
+            background: #1f2123;
+            border: 1px solid #0f4c73;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            margin: 0.6rem 0;
+            font-size: 1rem;
+            color: #d0cec8;
+        }
+        .ayet-referans .ref-arapca {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 1.4rem;
+            text-align: right;
+            direction: rtl;
+            color: #e8e6e3;
+            margin-bottom: 0.5rem;
+        }
+        .ayet-referans .ref-meal {
+            color: #8eb4d9;
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            background: #0f4c73;
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            transition: background 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 2px 8px rgba(122, 134, 110, 0.25);
+        }
+        .back-link:hover {
+            background: #0a3552;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(122, 134, 110, 0.4);
+        }
+        .page-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #9a9c98;
+            border-top: 1px solid #3a3d3f;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 650px) {
+            .arabic-box { font-size: 1.4rem; }
+            .meal-box { font-size: 1.2rem; }
+            .header-card .sure-name-ar { font-size: 1.7rem; }
+            .content-card { padding: 1.2rem; }
+        }
+    </style>
+
+
+
+
+
+
+
+
+<style id="ozgunMealTrackerCSS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+/* 1. SAYFA GENEL FONU */
+body, html, :root { 
+    background: #0f141a !important; 
+    background-color: #0f141a !important;
+}
+
+/* 2. SABİT ALANLARIN VE BAŞLIK KARTLARININ KIŞ PALETİ DÖNÜŞÜMÜ */
+.sure-header, .header-card { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    box-shadow: 0 12px 20px rgba(0,0,0,0.45) !important; 
+    border: none !important;
+}
+
+/* 3. VARSAYILAN KARTLAR VE İÇERİK ALANLARI */
+.ayet-list .ayet-card, [id^="ayet-"], .sure-list .sure-item, .controls, .content-card {
+    background: #263242 !important;
+    border-color: #344459 !important;
+}
+.arabic-box, .meal-box, .ayet-referans {
+    background: #1a222b !important;
+    border-color: #344459 !important;
+}
+
+/* 4. METİN VE BAŞLIK AYRAÇLARI */
+.aciklama-baslik {
+    border-bottom-color: #0f4c73 !important;
+}
+
+/* 5. GERİ DÖNÜŞ VE NAVİGASYON BUTONLARI */
+.back-link, .page-nav .nav-btn, .home-btn, a.home-btn, .page-nav a, .okuma-devam a { 
+    background: #0f4c73 !important; 
+    background-color: #0f4c73 !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 2px 8px rgba(15,76,115,0.25) !important; 
+}
+.back-link:hover, .page-nav .nav-btn:hover:not(.disabled), .home-btn:hover, a.home-btn:hover { 
+    background: #0a3552 !important; 
+    background-color: #0a3552 !important;
+    background-image: none !important;
+    box-shadow: 0 6px 16px rgba(10,53,82,0.4) !important;
+}
+
+/* 6. DURUM DEĞİŞİKLİKLERİ */
+.ayet-list .ayet-card.ayet-okundu, [id^="ayet-"].ayet-okundu { 
+    background: #1a222b !important; 
+    border-color: #232d3a !important; 
+}
+.ayet-list .ayet-card.ayet-okundu .ayet-num, [id^="ayet-"].ayet-okundu .ayet-num { 
+    background: #0f141a !important; 
+    color: #8eb4d9 !important; 
+    border-color: #0f141a !important;
+}
+.sure-list .sure-item.highlight, .ayet-list .ayet-card.ayet-aktif, [id^="ayet-"].ayet-aktif {
+    border-color: #8eb4d9 !important;
+    box-shadow: 0 0 0 2px rgba(142,180,217,0.55), 0 8px 20px rgba(0,0,0,0.4) !important;
+}
+
+.page-footer {
+    border-top-color: #344459 !important;
+}
+</style>
+<style id="ozgunMealMobileFixCSS">
+/* --- MOBİL DÜZEN DÜZELTMELERİ (otomatik eklendi) --- */
+@media (max-width: 480px) {
+    .page-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "indicator indicator"
+            "prev next";
+        gap: 0.6rem;
+        row-gap: 0.6rem;
+    }
+    .page-nav .page-indicator {
+        grid-area: indicator;
+        text-align: center;
+        justify-self: center;
+    }
+    .page-nav .nav-btn:first-of-type {
+        grid-area: prev;
+        justify-content: center;
+    }
+    .page-nav .nav-btn:last-of-type {
+        grid-area: next;
+        justify-content: center;
+    }
+    .page-nav .nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- Başlık Kartı -->
+        <div class="header-card">
+            <div class="sure-name-ar">البقرة</div>
+            <div class="sure-name-tr">Bakara Suresi – 31. Ayet</div>
+            <div class="sure-info">Açıklama | "Bütün İsimlerin Âdem'e Öğretilmesi" Ne Demektir?</div>
+        </div>
+
+        <!-- Ayet Metni ve Meal -->
+        <div class="content-card">
+            <div class="arabic-box">
+                وَعَلَّمَ ءَادَمَ ٱلْأَسْمَآءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى ٱلْمَلَٰٓئِكَةِ فَقَالَ أَنۢبِـُٔونِى بِأَسْمَآءِ هَٰٓؤُلَآءِ إِن كُنتُمْ صَٰدِقِينَ
+            </div>
+            <div class="meal-box">
+                <strong>Meal:</strong> Allah, Âdem'e bütün varlıkların isimlerini öğretti. Sonra onları meleklere gösterip, "Eğer doğru söylüyorsanız, şunların isimlerini bana bildirin" dedi.
+            </div>
+
+            <!-- Açıklama Başlığı -->
+            <div class="aciklama-baslik"> "Bütün İsimlerin Âdem'e Öğretilmesi" Ne Anlama Gelir?</div>
+
+            <div class="aciklama-metin">
+                Bu ifade, insana verilen ve onu meleklerden bile üstün kılan en temel yeteneği simgeler. Kur'an'ın kendi içindeki açıklamalarına göre bu, sadece basit bir kelime öğretimi değil; insanın yeryüzündeki halifelik görevinin temelini oluşturan çok boyutlu bir ayrıcalıktır.
+            </div>
+
+            <ul class="aciklama-list">
+                <li><strong>1. Kavramsal Düşünme ve Soyutlama Yeteneği:</strong> Âdem'e öğretilen "isimler", varlıkların sadece adları değil; onların özellikleri, işlevleri ve aralarındaki ilişkileri de kapsayan bir bilgi bütünüdür. Bu, insana verilen kavram oluşturma, sınıflandırma ve soyut düşünme yeteneğinin sembolüdür. Bu yetenek, bilim, sanat ve medeniyet kurmanın temelidir.</li>
+                <li><strong>2. Bilgi Yoluyla Üstünlük:</strong> Melekler, Allah'ı tesbih ve takdis etmelerine rağmen bu bilgiye sahip değildi. İnsan, kendisine verilen bu bilgi sayesinde meleklerden üstün bir konuma yükseldi. Bu, Kur'an'da bilginin ne kadar yüce bir değer olduğunu gösterir.</li>
+                <li><strong>3. Halifeliğin Dayanağı:</strong> Âdem'in yeryüzünde halife (irade sahibi sorumlu bir temsilci) kılınmasından hemen sonra bu bilginin verilmesi, insanın yeryüzündeki görevinin bilgiyle yönetmek, doğayı anlamak ve düzeni sağlamak olduğunu gösterir.</li>
+                <li><strong>4. Dil ve İletişim Yeteneği:</strong> İsimlerin öğretilmesi, dil yeteneğinin ve iletişim kurma kabiliyetinin de sembolüdür. Bu, insanı diğer canlılardan ayıran en temel özelliklerden biridir.</li>
+            </ul>
+
+            <div class="aciklama-baslik"> Kur'an'dan Referanslar</div>
+
+            <!-- Referans 1 -->
+            <div class="ayet-referans">
+                <strong>Rahmân 55/1-4</strong> – İnsana beyanın (konuşma ve anlatma yeteneğinin) öğretilmesi:
+                <div class="ref-arapca">ٱلرَّحْمَٰنُ ١ عَلَّمَ ٱلْقُرْءَانَ ٢ خَلَقَ ٱلْإِنسَٰنَ ٣ عَلَّمَهُ ٱلْبَيَانَ ٤</div>
+                <div class="ref-meal">"Rahman, Kur'an'ı öğretti. İnsanı yarattı. Ona beyanı (konuşmayı ve anlatmayı) öğretti."</div>
+            </div>
+
+            <!-- Referans 2 -->
+            <div class="ayet-referans">
+                <strong>Alak 96/4-5</strong> – Kalemle yazmanın ve bilinmeyenin öğretilmesi:
+                <div class="ref-arapca">ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ ٤ عَلَّمَ ٱلْإِنسَٰنَ مَا لَمْ يَعْلَمْ ٥</div>
+                <div class="ref-meal">"O, kalemle yazmayı öğretti. İnsana bilmediğini öğretti."</div>
+            </div>
+
+            <!-- Referans 3 -->
+            <div class="ayet-referans">
+                <strong>Bakara 2/32-33</strong> – Meleklerin bilgi karşısındaki acziyeti ve Âdem'in üstünlüğü:
+                <div class="ref-arapca">قَالُوا۟ سُبْحَٰنَكَ لَا عِلْمَ لَنَآ إِلَّا مَا عَلَّمْتَنَآ ۖ إِنَّكَ أَنتَ ٱلْعَلِيمُ ٱلْحَكِيمُ ٣٢ قَالَ يَٰٓـَٔادَمُ أَنۢبِئْهُم بِأَسْمَآئِهِمْ ۖ فَلَمَّآ أَنۢبَأَهُم بِأَسْمَآئِهِمْ قَالَ أَلَمْ أَقُل لَّكُمْ إِنِّىٓ أَعْلَمُ غَيْبَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنتُمْ تَكْتُمُونَ</div>
+                <div class="ref-meal">""Sen yücesin. Bize öğrettiğinden başka bilgimiz yoktur. Kuşkusuz sen, her şeyi yerli yerince bilen ve yapansın" dediler. Allah, 'Ey Âdem, onlara isimlerini söyle' dedi. Âdem isimleri söyleyince, 'Ben size göklerin ve yerin gizliliklerini bildiğimi, açıkladıklarınızı da sakladıklarınızı da bildiğimi söylememiş miydim?' dedi."</div>
+            </div>
+
+            <!-- Referans 4 -->
+            <div class="ayet-referans">
+                <strong>Zümer 39/9</strong> – Bilenlerle bilmeyenlerin bir olmadığı:
+                <div class="ref-arapca">قُلْ هَلْ يَسْتَوِى ٱلَّذِينَ يَعْلَمُونَ وَٱلَّذِينَ لَا يَعْلَمُونَ ۗ إِنَّمَا يَتَذَكَّرُ أُو۟لُوا۟ ٱلْأَلْبَٰبِ</div>
+                <div class="ref-meal">"De ki: 'Hiç bilenlerle bilmeyenler bir olur mu?' Ancak akıl sahipleri düşünüp ders alır."</div>
+            </div>
+
+            <div class="aciklama-baslik"> Özetle</div>
+            <div class="aciklama-metin">
+                "Bütün isimlerin Âdem'e öğretilmesi", insana verilen <strong>kavramsal düşünme, soyutlama, dil ve iletişim, bilgiyi yönetme ve doğayı anlama</strong> gibi en temel yeteneklerin sembolüdür. Bu yetenek, insanı meleklerden bile üstün kılmış ve yeryüzünde <strong>halifelik (sorumlu temsilcilik)</strong> görevinin temel dayanağı olmuştur. Kur'an, bu olayı anlatarak bilginin ve aklın ne kadar yüce bir değer olduğunu vurgular.
+            </div>
+
+            <!-- Geri dönüş butonu -->
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="#" onclick="history.back(); return false;" class="back-link">← Ayet Sayfasına Dön</a>
+            </div>
+        </div>
+
+                                    <div class="page-footer">
+        <i class="ph ph-moon-bold">◌</i> Mekkî: Mekke'de<i class="ph ph-dot-bold">◌</i>Medenî: Medine'de <i class="ph ph-sun-bold">indirilmiş ayetlerdir.</i>❗Bu konuda anlaşmazlık mevcuttur.<br>
+        🌿 Her ayet, Arapça metnin bağlamsal yapısı ve anlamı esas alınarak çevrilmiştir.<br>
+        <span class="footer-brand"><a href="https://www.youtube.com/@ARDCHANNEL" target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:none; border:1px solid #344459; border-radius:6px; padding:4px 10px; display:inline-block;">-ard-</a></span>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+<script id="ozgunMealTrackerJS">
+/* OZGUN-MEAL-OKUMA-TAKIP */
+(function () {
+    var cards = document.querySelectorAll('.ayet-card[id^="ayet-"]');
+    if (!cards.length) return;
+
+    var fileName = location.pathname.split('/').pop();
+    var sureMatch = fileName.match(/^(\d+)_/);
+    var sureNo = sureMatch ? parseInt(sureMatch[1], 10) : null;
+    if (sureNo === null) return;
+
+    var nameEl = document.querySelector('.sure-name-tr');
+    var sureAd = nameEl ? nameEl.textContent.replace(/\s*\(\d+\.\s*Sure\)\s*$/, '').trim() : '';
+
+    var rangeMatch = fileName.match(/_(\d+)-(\d+)\.html?$/i);
+    var pageStart = rangeMatch ? parseInt(rangeMatch[1], 10) : null;
+    var pageEnd = rangeMatch ? parseInt(rangeMatch[2], 10) : null;
+
+    var READ_KEY = 'ozgunMealReadVerses';
+    var LASTREAD_KEY = 'ozgunMealLastRead';
+
+    var readSet = {};
+    try { readSet = JSON.parse(localStorage.getItem(READ_KEY) || '{}'); } catch (e) { readSet = {}; }
+
+    function verseKey(no) { return sureNo + ':' + no; }
+
+    cards.forEach(function (card) {
+        var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+        if (readSet[verseKey(vNo)]) card.classList.add('ayet-okundu');
+    });
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            var vNo = parseInt(card.id.replace('ayet-', ''), 10);
+            var isOkundu = card.classList.contains('ayet-okundu');
+            
+            // DOM güncellemelerini tarayıcı işlemlerini kilitlemeden anlık (atomik) yapıyoruz
+            if (isOkundu) {
+                card.classList.remove('ayet-okundu');
+                delete readSet[verseKey(vNo)];
+            } else {
+                card.classList.add('ayet-okundu');
+                readSet[verseKey(vNo)] = true;
+            }
+
+            // Aktiflik durumunu diğer kartlardan senkronize temizle
+            cards.forEach(function (c) { if(c !== card) c.classList.remove('ayet-aktif'); });
+            card.classList.add('ayet-aktif');
+            
+            // LocalStorage işlemlerini işlem sırasının sonuna atarak render takılmasını önlüyoruz
+            setTimeout(function() {
+                try {
+                    localStorage.setItem(READ_KEY, JSON.stringify(readSet));
+                    localStorage.setItem(LASTREAD_KEY, JSON.stringify({
+                        no: sureNo,
+                        ad: sureAd,
+                        dosya: fileName,
+                        verse: vNo,
+                        start: pageStart,
+                        end: pageEnd
+                    }));
+                } catch (err) {}
+            }, 0);
+        });
+    });
+
+    if (location.hash && /^#ayet-\d+$/.test(location.hash)) {
+        var target = document.querySelector(location.hash);
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    }
+})();
+</script>
+</body>
+</html>
